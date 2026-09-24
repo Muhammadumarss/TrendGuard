@@ -1,0 +1,172 @@
+{
+  "checkedAt": "2026-09-21T20:58:13.208Z",
+  "models": {
+    "BTCUSDT": {
+      "trainedAt": 1790024064171,
+      "dataThrough": 1790023499999,
+      "validation": {
+        "count": 1107,
+        "brier": 0.04878044459310892,
+        "baselineBrier": 0.04892899292667791,
+        "logLoss": 0.17725965250421855,
+        "passed": true,
+        "trainingCount": 4403,
+        "trainLastSignal": 1788981300000,
+        "validationFirstSignal": 1789004700000
+      }
+    },
+    "ETHUSDT": {
+      "trainedAt": 1790024064171,
+      "dataThrough": 1790023499999,
+      "validation": {
+        "count": 1107,
+        "brier": 0.10526073500579494,
+        "baselineBrier": 0.09985126621429564,
+        "logLoss": 0.36794251721169663,
+        "passed": false,
+        "trainingCount": 4403,
+        "trainLastSignal": 1788981300000,
+        "validationFirstSignal": 1789004700000
+      }
+    }
+  },
+  "backtest": {
+    "normal": {
+      "version": 2,
+      "mode": "historical simulation",
+      "createdAt": 1790024173597,
+      "costMultiplier": 1,
+      "from": 1788209100000,
+      "to": 1790022600000,
+      "trades": [],
+      "netPnl": 0,
+      "endingBalance": 1000,
+      "maxDrawdown": 0,
+      "profitFactor": null,
+      "lockViolations": 0,
+      "folds": [
+        {
+          "time": 1788209100000,
+          "models": {
+            "BTCUSDT": {
+              "count": 704,
+              "brier": 0.06094535985337115,
+              "baselineBrier": 0.05378052113223685,
+              "logLoss": 0.24843100814412253
+            },
+            "ETHUSDT": {
+              "count": 704,
+              "brier": 0.09082063776468056,
+              "baselineBrier": 0.08659933754821773,
+              "logLoss": 0.3404504603678106
+            }
+          }
+        },
+        {
+          "time": 1788813900000,
+          "models": {
+            "BTCUSDT": {
+              "count": 839,
+              "brier": 0.029854583274667213,
+              "baselineBrier": 0.029244164386727996,
+              "logLoss": 0.1267534536461092
+            },
+            "ETHUSDT": {
+              "count": 839,
+              "brier": 0.055639949536589406,
+              "baselineBrier": 0.05225866600528522,
+              "logLoss": 0.24130371071814358
+            }
+          }
+        },
+        {
+          "time": 1789418700000,
+          "models": {
+            "BTCUSDT": {
+              "count": 973,
+              "brier": 0.004403472483073763,
+              "baselineBrier": 0.0060085495951459535,
+              "logLoss": 0.0329554982832162
+            },
+            "ETHUSDT": {
+              "count": 973,
+              "brier": 0.016570833527295895,
+              "baselineBrier": 0.018114470010793082,
+              "logLoss": 0.09617723722613447
+            }
+          }
+        }
+      ],
+      "note": "15-minute OHLC approximation; no order book or partial fills. Zero trades do not validate a strategy."
+    },
+    "stress": {
+      "version": 2,
+      "mode": "historical simulation",
+      "createdAt": 1790024174494,
+      "costMultiplier": 2,
+      "from": 1788209100000,
+      "to": 1790022600000,
+      "trades": [],
+      "netPnl": 0,
+      "endingBalance": 1000,
+      "maxDrawdown": 0,
+      "profitFactor": null,
+      "lockViolations": 0,
+      "folds": [
+        {
+          "time": 1788209100000,
+          "models": {
+            "BTCUSDT": {
+              "count": 704,
+              "brier": 0.06094535985337115,
+              "baselineBrier": 0.05378052113223685,
+              "logLoss": 0.24843100814412253
+            },
+            "ETHUSDT": {
+              "count": 704,
+              "brier": 0.09082063776468056,
+              "baselineBrier": 0.08659933754821773,
+              "logLoss": 0.3404504603678106
+            }
+          }
+        },
+        {
+          "time": 1788813900000,
+          "models": {
+            "BTCUSDT": {
+              "count": 839,
+              "brier": 0.029854583274667213,
+              "baselineBrier": 0.029244164386727996,
+              "logLoss": 0.1267534536461092
+            },
+            "ETHUSDT": {
+              "count": 839,
+              "brier": 0.055639949536589406,
+              "baselineBrier": 0.05225866600528522,
+              "logLoss": 0.24130371071814358
+            }
+          }
+        },
+        {
+          "time": 1789418700000,
+          "models": {
+            "BTCUSDT": {
+              "count": 973,
+              "brier": 0.004403472483073763,
+              "baselineBrier": 0.0060085495951459535,
+              "logLoss": 0.0329554982832162
+            },
+            "ETHUSDT": {
+              "count": 973,
+              "brier": 0.016570833527295895,
+              "baselineBrier": 0.018114470010793082,
+              "logLoss": 0.09617723722613447
+            }
+          }
+        }
+      ],
+      "note": "15-minute OHLC approximation; no order book or partial fills. Zero trades do not validate a strategy."
+    }
+  },
+  "note": "Real public OHLCV check. Zero trades in this sample: no evidence of profitability. Runtime data and trained models are not shipped."
+}

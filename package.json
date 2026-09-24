@@ -1,0 +1,19 @@
+{
+  "name": "trendguard-node",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Local paper-trading agent with a Node.js engine and Express dashboard",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test",
+    "train": "node src/jobs.js train",
+    "backtest": "node src/jobs.js backtest"
+  },
+  "dependencies": {
+    "express": "5.2.1"
+  }
+}
