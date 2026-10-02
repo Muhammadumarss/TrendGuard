@@ -1,0 +1,772 @@
+{
+  "BTCUSDT": {
+    "version": 3,
+    "base": -3.0891063443314493,
+    "rate": 0.08,
+    "trees": [
+      {
+        "feature": 4,
+        "threshold": 0.00683734205743014,
+        "left": -0.5865533978978043,
+        "right": 2
+      },
+      {
+        "feature": 5,
+        "threshold": 0.0149122739434282,
+        "left": -0.5685424578190041,
+        "right": 2
+      },
+      {
+        "feature": 5,
+        "threshold": 0.01043955170903943,
+        "left": -0.6913091649463863,
+        "right": 2
+      },
+      {
+        "feature": 5,
+        "threshold": 0.01043955170903943,
+        "left": -0.6711566327010491,
+        "right": 1.9426418781711303
+      },
+      {
+        "feature": 4,
+        "threshold": 0.00683734205743014,
+        "left": -0.515596079419795,
+        "right": 1.964315463625267
+      },
+      {
+        "feature": 5,
+        "threshold": 0.01043955170903943,
+        "left": -0.6359640187606523,
+        "right": 1.371308296421839
+      },
+      {
+        "feature": 5,
+        "threshold": 0.01043955170903943,
+        "left": -0.6152378278760471,
+        "right": 1.1559764028140243
+      },
+      {
+        "feature": 5,
+        "threshold": 0.01043955170903943,
+        "left": -0.5943707199413273,
+        "right": 0.9894276941934621
+      },
+      {
+        "feature": 4,
+        "threshold": 0.00683734205743014,
+        "left": -0.44995727192673796,
+        "right": 1.087461564023612
+      },
+      {
+        "feature": 5,
+        "threshold": 0.0015600742415942115,
+        "left": -0.9019045225228008,
+        "right": 0.5180502008287977
+      },
+      {
+        "feature": 5,
+        "threshold": 0.0015600742415942115,
+        "left": -0.8913212487708333,
+        "right": 0.4610307446536108
+      },
+      {
+        "feature": 5,
+        "threshold": 0.0015600742415942115,
+        "left": -0.8804315465906272,
+        "right": 0.41193243095971616
+      },
+      {
+        "feature": 5,
+        "threshold": 0.0149122739434282,
+        "left": -0.4103588920086151,
+        "right": 0.7897992569404872
+      },
+      {
+        "feature": 5,
+        "threshold": 0.0015600742415942115,
+        "left": -0.8638127873477778,
+        "right": 0.35266716345628435
+      },
+      {
+        "feature": 5,
+        "threshold": 0.0015600742415942115,
+        "left": -0.8520708860120556,
+        "right": 0.3175480363469326
+      },
+      {
+        "feature": 5,
+        "threshold": 0.0015600742415942115,
+        "left": -0.8399539824817457,
+        "right": 0.28660895513271994
+      },
+      {
+        "feature": 4,
+        "threshold": 0.00683734205743014,
+        "left": -0.36872497084294953,
+        "right": 0.5926734694368088
+      },
+      {
+        "feature": 5,
+        "threshold": 0.0015600742415942115,
+        "left": -0.8217752421180106,
+        "right": 0.24942874569660722
+      },
+      {
+        "feature": 4,
+        "threshold": -0.0007398308073292004,
+        "left": -0.8261904697027319,
+        "right": 0.2299770259421771
+      },
+      {
+        "feature": 5,
+        "threshold": 0.0149122739434282,
+        "left": -0.3452905635646227,
+        "right": 0.503596467150098
+      },
+      {
+        "feature": 4,
+        "threshold": -0.0007398308073292004,
+        "left": -0.8090211040476694,
+        "right": 0.20484633650134298
+      },
+      {
+        "feature": 5,
+        "threshold": 0.0015600742415942115,
+        "left": -0.7898112577893226,
+        "right": 0.1977179405792491
+      }
+    ],
+    "selection": {
+      "rounds": 22,
+      "tuningBrier": 0.001746605676709923,
+      "tuningCount": 648,
+      "trainLastSignal": 1787752800000,
+      "tuningFirstSignal": 1787776200000
+    },
+    "featureDomain": [
+      {
+        "min": -0.017337801608240833,
+        "max": 0.024573018873585983
+      },
+      {
+        "min": -0.023202948647600752,
+        "max": 0.05968948559130216
+      },
+      {
+        "min": -0.026840233501609134,
+        "max": 0.06799099257473418
+      },
+      {
+        "min": 0.0002413971424025133,
+        "max": 0.0073889020829270725
+      },
+      {
+        "min": -0.02265420069532076,
+        "max": 0.05824465808813306
+      },
+      {
+        "min": -0.024243982559107313,
+        "max": 0.11273577271481416
+      },
+      {
+        "min": -0.921079492199395,
+        "max": 10.853515024414289
+      },
+      {
+        "min": 1.58452841139258e-7,
+        "max": 0.042710488756424796
+      }
+    ],
+    "calibration": {
+      "slope": 1.0129953869396429,
+      "intercept": -0.027031000073005733,
+      "status": "fitted_on_separate_chronological_period",
+      "count": 1062
+    },
+    "signature": "{\"version\":3,\"validationPolicy\":\"supported-executable-domain-v2\",\"features\":\"fixed-299-v2\",\"target\":\"long-tp-before-stop-or-time\",\"fee\":0.001,\"slippage\":0.0005,\"spread\":0.001,\"stop\":0.01,\"takeProfit\":0.02,\"horizon\":24,\"threshold\":0.6,\"minEvidenceTrades\":30,\"maxEntryDrift\":0.003,\"maxSpread\":0.002,\"trainingDays\":60}",
+    "target": "long TP before stop or expiry; timeout can have positive or negative P&L",
+    "trainedAt": 1790361900000,
+    "dataThrough": 1790361899999,
+    "validation": {
+      "count": 1088,
+      "brier": 0.045360026756868906,
+      "baselineBrier": 0.045527777450768275,
+      "logLoss": 0.18185313599390238,
+      "passed": false,
+      "qualityPassed": false,
+      "reason": "Holdout improvement is absent or uncertain",
+      "improvement": {
+        "mean": 0.00016775069389892393,
+        "lower": -0.005877941754807624,
+        "upper": 0.007632776233379983,
+        "blocks": 43,
+        "method": "95% moving-block percentile bootstrap; dependence may exceed block length"
+      },
+      "economic": {
+        "count": 0,
+        "expectedNetReturn": null,
+        "minScore": null,
+        "maxScore": null,
+        "interval": {
+          "mean": null,
+          "lower": null,
+          "upper": null,
+          "blocks": 0
+        },
+        "supported": false,
+        "selectedRows": 0,
+        "regimes": {
+          "bullish:high_volatility": {
+            "count": 0,
+            "expectedNetReturn": null,
+            "minScore": null,
+            "maxScore": null,
+            "interval": {
+              "mean": null,
+              "lower": null,
+              "upper": null,
+              "blocks": 0
+            },
+            "supported": false
+          },
+          "bullish:low_volatility": {
+            "count": 0,
+            "expectedNetReturn": null,
+            "minScore": null,
+            "maxScore": null,
+            "interval": {
+              "mean": null,
+              "lower": null,
+              "upper": null,
+              "blocks": 0
+            },
+            "supported": false
+          },
+          "range:low_volatility": {
+            "count": 0,
+            "expectedNetReturn": null,
+            "minScore": null,
+            "maxScore": null,
+            "interval": {
+              "mean": null,
+              "lower": null,
+              "upper": null,
+              "blocks": 0
+            },
+            "supported": false
+          },
+          "bearish:low_volatility": {
+            "count": 0,
+            "expectedNetReturn": null,
+            "minScore": null,
+            "maxScore": null,
+            "interval": {
+              "mean": null,
+              "lower": null,
+              "upper": null,
+              "blocks": 0
+            },
+            "supported": false
+          },
+          "bearish:high_volatility": {
+            "count": 0,
+            "expectedNetReturn": null,
+            "minScore": null,
+            "maxScore": null,
+            "interval": {
+              "mean": null,
+              "lower": null,
+              "upper": null,
+              "blocks": 0
+            },
+            "supported": false
+          },
+          "range:high_volatility": {
+            "count": 0,
+            "expectedNetReturn": null,
+            "minScore": null,
+            "maxScore": null,
+            "interval": {
+              "mean": null,
+              "lower": null,
+              "upper": null,
+              "blocks": 0
+            },
+            "supported": false
+          }
+        },
+        "interpretation": "Historical non-overlapping selected examples; not a portfolio backtest or guaranteed expectation"
+      },
+      "outsideDomainCount": 1,
+      "predictions": {
+        "target": "TP before stop or expiry; not probability of a profitable close",
+        "threshold": 0.6,
+        "count": 1088,
+        "accuracy": 0.9522058823529411,
+        "precision": null,
+        "recall": 0,
+        "f1": 0,
+        "tp": 0,
+        "fp": 0,
+        "tn": 1036,
+        "fn": 52,
+        "meanPredicted": 0.05968390017129998,
+        "observedRate": 0.04779411764705882,
+        "ece": 0.02472481560187605,
+        "bins": [
+          {
+            "from": 0,
+            "to": 0.1,
+            "count": 751,
+            "predicted": 0.02532322504096745,
+            "actual": 0.03462050599201065,
+            "support": "higher"
+          },
+          {
+            "from": 0.1,
+            "to": 0.2,
+            "count": 337,
+            "predicted": 0.13625620587717419,
+            "actual": 0.0771513353115727,
+            "support": "higher"
+          },
+          {
+            "from": 0.2,
+            "to": 0.3,
+            "count": 0,
+            "predicted": null,
+            "actual": null,
+            "support": "low"
+          },
+          {
+            "from": 0.3,
+            "to": 0.4,
+            "count": 0,
+            "predicted": null,
+            "actual": null,
+            "support": "low"
+          },
+          {
+            "from": 0.4,
+            "to": 0.5,
+            "count": 0,
+            "predicted": null,
+            "actual": null,
+            "support": "low"
+          },
+          {
+            "from": 0.5,
+            "to": 0.6,
+            "count": 0,
+            "predicted": null,
+            "actual": null,
+            "support": "low"
+          },
+          {
+            "from": 0.6,
+            "to": 0.7,
+            "count": 0,
+            "predicted": null,
+            "actual": null,
+            "support": "low"
+          },
+          {
+            "from": 0.7,
+            "to": 0.8,
+            "count": 0,
+            "predicted": null,
+            "actual": null,
+            "support": "low"
+          },
+          {
+            "from": 0.8,
+            "to": 0.9,
+            "count": 0,
+            "predicted": null,
+            "actual": null,
+            "support": "low"
+          },
+          {
+            "from": 0.9,
+            "to": 1,
+            "count": 0,
+            "predicted": null,
+            "actual": null,
+            "support": "low"
+          }
+        ]
+      },
+      "trainingPositiveRate": 0.04355885078776645,
+      "holdoutPositiveRate": 0.04779411764705882,
+      "trainingCount": 3237,
+      "trainLastSignal": 1788358500000,
+      "calibrationFirstSignal": 1788381900000,
+      "calibrationLastSignal": 1789336800000,
+      "validationFirstSignal": 1789360200000
+    },
+    "provenance": {
+      "config": {
+        "backtestSpread": 0.001,
+        "trainingLatencyBars": 1,
+        "dailyLossFraction": 0.005,
+        "weeklyLossFraction": 0.02,
+        "maxDrawdownFraction": 0.1,
+        "maxConsecutiveLosses": 4,
+        "minEvidenceTrades": 30,
+        "mode": "paper",
+        "port": 3000,
+        "symbols": [
+          "BTCUSDT",
+          "ETHUSDT"
+        ],
+        "initialBalance": 1000,
+        "fee": 0.001,
+        "slippage": 0.0005,
+        "stop": 0.01,
+        "takeProfit": 0.02,
+        "riskFraction": 0.0025,
+        "maxAllocation": 0.2,
+        "minStake": 10,
+        "threshold": 0.6,
+        "horizon": 24,
+        "trainingDays": 60,
+        "modelMaxAgeHours": 24,
+        "retrainHours": 12,
+        "pollSeconds": 15,
+        "maxSpread": 0.002,
+        "maxEntryDrift": 0.003
+      },
+      "configHash": "e46e778dd07f8f3f0456b94b27cd87f769678b479735268f02c109a172b07674",
+      "dataHash": "1e0e66d809fb1144615a6f3c480a87b288a2ad529e435bb56d1189ebc95e767a",
+      "sourceHash": "3bc7a5037ab023c52cd581ca2ec3541a60a49e526edc3555261641e759a717b9",
+      "node": "v24.21.0"
+    },
+    "id": "1713716b1dfd0d3e88343a3f6bfc16c8dcb21f8c8febd74df2742d23b8f1d13f"
+  },
+  "ETHUSDT": {
+    "version": 3,
+    "base": -2.6183906928067,
+    "rate": 0.08,
+    "trees": [
+      {
+        "feature": 5,
+        "threshold": 0.06450976052633495,
+        "left": -0.2948293136608972,
+        "right": 2
+      },
+      {
+        "feature": 5,
+        "threshold": 0.014804112837795591,
+        "left": -0.38437076618452654,
+        "right": 2
+      }
+    ],
+    "selection": {
+      "rounds": 2,
+      "tuningBrier": 0.0513368577604456,
+      "tuningCount": 648,
+      "trainLastSignal": 1787752800000,
+      "tuningFirstSignal": 1787776200000
+    },
+    "featureDomain": [
+      {
+        "min": -0.02753705611212076,
+        "max": 0.04404226777435216
+      },
+      {
+        "min": -0.037028245905530666,
+        "max": 0.09321819008205146
+      },
+      {
+        "min": -0.04141941609304545,
+        "max": 0.09401545787370469
+      },
+      {
+        "min": 0.00028459091716613203,
+        "max": 0.010899429936953127
+      },
+      {
+        "min": -0.026710666110316583,
+        "max": 0.11272209205342643
+      },
+      {
+        "min": -0.027729892366815556,
+        "max": 0.16663861838012783
+      },
+      {
+        "min": -0.8810133775695054,
+        "max": 16.64772973509755
+      },
+      {
+        "min": 0.00007975329646963577,
+        "max": 0.054519280710292425
+      }
+    ],
+    "calibration": {
+      "slope": 1.2410401003649372,
+      "intercept": -0.0930551107835419,
+      "status": "fitted_on_separate_chronological_period",
+      "count": 1062
+    },
+    "signature": "{\"version\":3,\"validationPolicy\":\"supported-executable-domain-v2\",\"features\":\"fixed-299-v2\",\"target\":\"long-tp-before-stop-or-time\",\"fee\":0.001,\"slippage\":0.0005,\"spread\":0.001,\"stop\":0.01,\"takeProfit\":0.02,\"horizon\":24,\"threshold\":0.6,\"minEvidenceTrades\":30,\"maxEntryDrift\":0.003,\"maxSpread\":0.002,\"trainingDays\":60}",
+    "target": "long TP before stop or expiry; timeout can have positive or negative P&L",
+    "trainedAt": 1790361900000,
+    "dataThrough": 1790361899999,
+    "validation": {
+      "count": 1088,
+      "brier": 0.09763797159724362,
+      "baselineBrier": 0.09436186555575792,
+      "logLoss": 0.3779768195158688,
+      "passed": false,
+      "qualityPassed": false,
+      "reason": "Holdout improvement is absent or uncertain",
+      "improvement": {
+        "mean": -0.0032761060414856036,
+        "lower": -0.007665045584249539,
+        "upper": 0.00038922160722718773,
+        "blocks": 43,
+        "method": "95% moving-block percentile bootstrap; dependence may exceed block length"
+      },
+      "economic": {
+        "count": 0,
+        "expectedNetReturn": null,
+        "minScore": null,
+        "maxScore": null,
+        "interval": {
+          "mean": null,
+          "lower": null,
+          "upper": null,
+          "blocks": 0
+        },
+        "supported": false,
+        "selectedRows": 0,
+        "regimes": {
+          "range:high_volatility": {
+            "count": 0,
+            "expectedNetReturn": null,
+            "minScore": null,
+            "maxScore": null,
+            "interval": {
+              "mean": null,
+              "lower": null,
+              "upper": null,
+              "blocks": 0
+            },
+            "supported": false
+          },
+          "range:low_volatility": {
+            "count": 0,
+            "expectedNetReturn": null,
+            "minScore": null,
+            "maxScore": null,
+            "interval": {
+              "mean": null,
+              "lower": null,
+              "upper": null,
+              "blocks": 0
+            },
+            "supported": false
+          },
+          "bullish:low_volatility": {
+            "count": 0,
+            "expectedNetReturn": null,
+            "minScore": null,
+            "maxScore": null,
+            "interval": {
+              "mean": null,
+              "lower": null,
+              "upper": null,
+              "blocks": 0
+            },
+            "supported": false
+          },
+          "bullish:high_volatility": {
+            "count": 0,
+            "expectedNetReturn": null,
+            "minScore": null,
+            "maxScore": null,
+            "interval": {
+              "mean": null,
+              "lower": null,
+              "upper": null,
+              "blocks": 0
+            },
+            "supported": false
+          },
+          "bearish:high_volatility": {
+            "count": 0,
+            "expectedNetReturn": null,
+            "minScore": null,
+            "maxScore": null,
+            "interval": {
+              "mean": null,
+              "lower": null,
+              "upper": null,
+              "blocks": 0
+            },
+            "supported": false
+          },
+          "bearish:low_volatility": {
+            "count": 0,
+            "expectedNetReturn": null,
+            "minScore": null,
+            "maxScore": null,
+            "interval": {
+              "mean": null,
+              "lower": null,
+              "upper": null,
+              "blocks": 0
+            },
+            "supported": false
+          }
+        },
+        "interpretation": "Historical non-overlapping selected examples; not a portfolio backtest or guaranteed expectation"
+      },
+      "outsideDomainCount": 40,
+      "predictions": {
+        "target": "TP before stop or expiry; not probability of a profitable close",
+        "threshold": 0.6,
+        "count": 1088,
+        "accuracy": 0.8961397058823529,
+        "precision": null,
+        "recall": 0,
+        "f1": 0,
+        "tp": 0,
+        "fp": 0,
+        "tn": 975,
+        "fn": 113,
+        "meanPredicted": 0.034508562340301925,
+        "observedRate": 0.10386029411764706,
+        "ece": 0.06935173177734513,
+        "bins": [
+          {
+            "from": 0,
+            "to": 0.1,
+            "count": 1088,
+            "predicted": 0.034508562340301925,
+            "actual": 0.10386029411764706,
+            "support": "higher"
+          },
+          {
+            "from": 0.1,
+            "to": 0.2,
+            "count": 0,
+            "predicted": null,
+            "actual": null,
+            "support": "low"
+          },
+          {
+            "from": 0.2,
+            "to": 0.3,
+            "count": 0,
+            "predicted": null,
+            "actual": null,
+            "support": "low"
+          },
+          {
+            "from": 0.3,
+            "to": 0.4,
+            "count": 0,
+            "predicted": null,
+            "actual": null,
+            "support": "low"
+          },
+          {
+            "from": 0.4,
+            "to": 0.5,
+            "count": 0,
+            "predicted": null,
+            "actual": null,
+            "support": "low"
+          },
+          {
+            "from": 0.5,
+            "to": 0.6,
+            "count": 0,
+            "predicted": null,
+            "actual": null,
+            "support": "low"
+          },
+          {
+            "from": 0.6,
+            "to": 0.7,
+            "count": 0,
+            "predicted": null,
+            "actual": null,
+            "support": "low"
+          },
+          {
+            "from": 0.7,
+            "to": 0.8,
+            "count": 0,
+            "predicted": null,
+            "actual": null,
+            "support": "low"
+          },
+          {
+            "from": 0.8,
+            "to": 0.9,
+            "count": 0,
+            "predicted": null,
+            "actual": null,
+            "support": "low"
+          },
+          {
+            "from": 0.9,
+            "to": 1,
+            "count": 0,
+            "predicted": null,
+            "actual": null,
+            "support": "low"
+          }
+        ]
+      },
+      "trainingPositiveRate": 0.06796416434970652,
+      "holdoutPositiveRate": 0.10386029411764706,
+      "trainingCount": 3237,
+      "trainLastSignal": 1788358500000,
+      "calibrationFirstSignal": 1788381900000,
+      "calibrationLastSignal": 1789336800000,
+      "validationFirstSignal": 1789360200000
+    },
+    "provenance": {
+      "config": {
+        "backtestSpread": 0.001,
+        "trainingLatencyBars": 1,
+        "dailyLossFraction": 0.005,
+        "weeklyLossFraction": 0.02,
+        "maxDrawdownFraction": 0.1,
+        "maxConsecutiveLosses": 4,
+        "minEvidenceTrades": 30,
+        "mode": "paper",
+        "port": 3000,
+        "symbols": [
+          "BTCUSDT",
+          "ETHUSDT"
+        ],
+        "initialBalance": 1000,
+        "fee": 0.001,
+        "slippage": 0.0005,
+        "stop": 0.01,
+        "takeProfit": 0.02,
+        "riskFraction": 0.0025,
+        "maxAllocation": 0.2,
+        "minStake": 10,
+        "threshold": 0.6,
+        "horizon": 24,
+        "trainingDays": 60,
+        "modelMaxAgeHours": 24,
+        "retrainHours": 12,
+        "pollSeconds": 15,
+        "maxSpread": 0.002,
+        "maxEntryDrift": 0.003
+      },
+      "configHash": "e46e778dd07f8f3f0456b94b27cd87f769678b479735268f02c109a172b07674",
+      "dataHash": "f37f8ef20d3d8b02a35160c29ff2c9adc622d064f928e0f6c391df752398598e",
+      "sourceHash": "3bc7a5037ab023c52cd581ca2ec3541a60a49e526edc3555261641e759a717b9",
+      "node": "v24.21.0"
+    },
+    "id": "47603c1afcb5c9147dae642c96532c8ca231446c46c1d551ce344f10c20af845"
+  }
+}

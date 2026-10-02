@@ -1,0 +1,55 @@
+Checking unchanged learner: BTCUSDT 2025-01-01T00:00:00.000Z
+Checking unchanged learner: ETHUSDT 2025-01-01T00:00:00.000Z
+Checking unchanged learner: BTCUSDT 2025-07-02T12:00:00.000Z
+Checking unchanged learner: ETHUSDT 2025-07-02T12:00:00.000Z
+Checking unchanged learner: BTCUSDT 2025-12-31T12:00:00.000Z
+Checking unchanged learner: ETHUSDT 2025-12-31T12:00:00.000Z
+Replaying current production policy with the verified frozen schedule
+{
+  "modelSummary": {
+    "BTCUSDT": {
+      "fits": 730,
+      "accepted": 0,
+      "predictiveQualityPassed": 94,
+      "zeroTrees": 194,
+      "calibrationPassed": 502,
+      "meanTargetFrequency": 0.04114877115229651,
+      "meanScore": 0.04717190830688062,
+      "maxIndependentEvidence": 0,
+      "fitsWithScoreQualifiedExamples": 0
+    },
+    "ETHUSDT": {
+      "fits": 730,
+      "accepted": 0,
+      "predictiveQualityPassed": 53,
+      "zeroTrees": 152,
+      "calibrationPassed": 725,
+      "meanTargetFrequency": 0.11349340249798533,
+      "meanScore": 0.11623366755332581,
+      "maxIndependentEvidence": 0,
+      "fitsWithScoreQualifiedExamples": 0
+    }
+  },
+  "before": {
+    "count": 0,
+    "netPnl": 0,
+    "netReturn": 0,
+    "maxDrawdown": 0,
+    "expectancy": null,
+    "profitFactor": null,
+    "lockViolations": 0
+  },
+  "after": {
+    "count": 0,
+    "netPnl": 0,
+    "netReturn": 0,
+    "maxDrawdown": 0,
+    "expectancy": null,
+    "profitFactor": null,
+    "lockViolations": 0
+  },
+  "selection": {
+    "trend_following": null,
+    "counter_trend": null
+  }
+}

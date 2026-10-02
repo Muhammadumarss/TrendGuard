@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "status": "research_only",
+  "frozenBeforeEvaluation": "2026-09-29",
+  "symbols": ["BTCUSDT", "ETHUSDT"],
+  "dataStart": "2022-01-01T00:00:00Z",
+  "developmentEnd": "2024-01-01T00:00:00Z",
+  "selectionEnd": "2025-01-01T00:00:00Z",
+  "testEnd": "2026-01-01T00:00:00Z",
+  "warmupDays": 200,
+  "candidates": [
+    {"id": "baseline_rules", "setup": "trend_following", "signal": "legacy", "exit": "fixed", "maxBars": 24},
+    {"id": "hourly_breakout_fixed", "setup": "trend_following", "signal": "hourly_breakout", "exit": "fixed", "maxBars": 24},
+    {"id": "hourly_breakout_trailing", "setup": "trend_following", "signal": "hourly_breakout", "exit": "trailing", "maxBars": 96},
+    {"id": "hourly_pullback_trailing", "setup": "trend_following", "signal": "hourly_pullback", "exit": "trailing", "maxBars": 96},
+    {"id": "daily_momentum_trailing", "setup": "trend_following", "signal": "daily_momentum", "exit": "trailing", "maxBars": 672},
+    {"id": "hourly_rebound_fixed", "setup": "counter_trend", "signal": "hourly_rebound", "exit": "fixed", "maxBars": 24}
+  ],
+  "riskPolicy": "Current config financial risk, hard stop, cash/allocation, exposure, loss budgets, cooldown and drawdown limits unchanged. Longer expiry and trailing exits are research-only alternatives. No production model gate is bypassed.",
+  "execution": "Signals use completed UTC-aligned bars; entry at next 15m open with spread, fees, slippage and drift guards. Stop-first OHLC exits. Trailing updates from completed closes apply only to subsequent bars. No same-bar reentry.",
+  "selection": "Choose at most one alternative per setup using 2024 only, ranking eligible candidates by net return. Baseline is a control, never a replacement. No parameter optimization or post-test selection.",
+  "promotion": {
+    "minTradesPerPeriod": 30,
+    "minTradesPerAsset": 10,
+    "positiveNetReturnInSelectionAndTest": true,
+    "positiveBlockBootstrapLowerBoundInSelectionAndTest": true,
+    "positiveNetPerAssetInSelectionAndTest": true,
+    "positiveNetWithDoubledFeesAndSlippage": true,
+    "maxDrawdownNoMoreThanCurrentLimit": true,
+    "requiresUntouchedForwardPaperValidation": true
+  },
+  "baselineML": "Run the unchanged rolling-60-day/retrain-12-hour model policy on the final 2025 period. Reuse a frozen schedule for the diagnostic-only revision, since learned rules/labels are unchanged.",
+  "limitations": "Retrospective chronological holdout is new to this task, not genuinely unseen market history. Public research can reflect knowledge of these years. Six candidates create selection risk. Unsuccessful candidates stay disabled; no claim of guaranteed improvement."
+}

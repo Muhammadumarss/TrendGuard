@@ -1,0 +1,39 @@
+{
+  "gaps": [
+    {
+      "after": 1679660100000,
+      "before": 1679666400000,
+      "missingBars": 6
+    }
+  ],
+  "quarantined": {
+    "BTCUSDT": [
+      {
+        "time": 1679661000000,
+        "end": 1679661581646,
+        "open": 28080,
+        "high": 28080,
+        "low": 28080,
+        "close": 28080,
+        "volume": 0,
+        "reason": "Truncated zero-volume archive interval; omitted, not synthesized"
+      }
+    ],
+    "ETHUSDT": [
+      {
+        "time": 1679661000000,
+        "end": 1679661583061,
+        "open": 1789.52,
+        "high": 1789.52,
+        "low": 1789.52,
+        "close": 1789.52,
+        "volume": 0,
+        "reason": "Truncated zero-volume archive interval; omitted, not synthesized"
+      }
+    ]
+  },
+  "excludedByAlignment": {
+    "BTCUSDT": 0,
+    "ETHUSDT": 0
+  }
+}

@@ -1,0 +1,509 @@
+Frozen 8917 bars/asset; rolling OOS 2026-08-26T18:45:00.000Z through 2026-09-28T15:59:59.999Z
+Replaying revised execution with the identical frozen model schedule
+Separate rules-only diagnostic: trend_following
+Separate rules-only diagnostic: counter_trend
+{
+  "evaluatedAt": "2026-09-28T17:00:27.844Z",
+  "provenance": {
+    "config": {
+      "backtestSpread": 0.001,
+      "trainingLatencyBars": 1,
+      "dailyLossFraction": 0.005,
+      "weeklyLossFraction": 0.02,
+      "maxDrawdownFraction": 0.1,
+      "maxConsecutiveLosses": 4,
+      "minEvidenceTrades": 30,
+      "mode": "paper",
+      "port": 3000,
+      "symbols": [
+        "BTCUSDT",
+        "ETHUSDT"
+      ],
+      "initialBalance": 1000,
+      "fee": 0.001,
+      "slippage": 0.0005,
+      "stop": 0.01,
+      "takeProfit": 0.02,
+      "riskFraction": 0.0025,
+      "maxAllocation": 0.2,
+      "minStake": 10,
+      "threshold": 0.6,
+      "horizon": 24,
+      "trainingDays": 60,
+      "modelMaxAgeHours": 24,
+      "retrainHours": 12,
+      "pollSeconds": 15,
+      "maxSpread": 0.002,
+      "maxEntryDrift": 0.003
+    },
+    "configHash": "e46e778dd07f8f3f0456b94b27cd87f769678b479735268f02c109a172b07674",
+    "dataHash": "b430a1ba5ade6ad566734b149c2a0d2ee5c205454b9192fee20548fcdbe3d666",
+    "sourceHash": "fde61ff8a18fe1136067bad754f5ca3648c3b530af22c33c74c4ac8ebe01978d",
+    "node": "v24.21.0"
+  },
+  "baselineProvenance": {
+    "config": {
+      "backtestSpread": 0.001,
+      "trainingLatencyBars": 1,
+      "dailyLossFraction": 0.005,
+      "weeklyLossFraction": 0.02,
+      "maxDrawdownFraction": 0.1,
+      "maxConsecutiveLosses": 4,
+      "minEvidenceTrades": 30,
+      "mode": "paper",
+      "port": 3000,
+      "symbols": [
+        "BTCUSDT",
+        "ETHUSDT"
+      ],
+      "initialBalance": 1000,
+      "fee": 0.001,
+      "slippage": 0.0005,
+      "stop": 0.01,
+      "takeProfit": 0.02,
+      "riskFraction": 0.0025,
+      "maxAllocation": 0.2,
+      "minStake": 10,
+      "threshold": 0.6,
+      "horizon": 24,
+      "trainingDays": 60,
+      "modelMaxAgeHours": 24,
+      "retrainHours": 12,
+      "pollSeconds": 15,
+      "maxSpread": 0.002,
+      "maxEntryDrift": 0.003
+    },
+    "configHash": "e46e778dd07f8f3f0456b94b27cd87f769678b479735268f02c109a172b07674",
+    "dataHash": "b430a1ba5ade6ad566734b149c2a0d2ee5c205454b9192fee20548fcdbe3d666",
+    "sourceHash": "3bc7a5037ab023c52cd581ca2ec3541a60a49e526edc3555261641e759a717b9",
+    "node": "v24.21.0"
+  },
+  "researchCodeHash": "6f21f392c78d57b63a00af7a84fc54780f49b437f987f0c627ab2a03a9ef6338",
+  "data": {
+    "from": 1782585900000,
+    "to": 1790611199999,
+    "countPerSymbol": 8917
+  },
+  "evaluation": {
+    "from": 1787769900000,
+    "to": 1790611199999,
+    "days": 32.885416666666664,
+    "rollingTrainingDays": 60,
+    "fits": 132,
+    "modelScheduleHash": "b4018fe8d4547561df4a085f143080f48134e34536882bf6aa28f52183b04d1f",
+    "regimeCoverage": {
+      "bearish:high_volatility": 585,
+      "range:high_volatility": 680,
+      "range:low_volatility": 1778,
+      "bearish:low_volatility": 1306,
+      "bullish:low_volatility": 1122,
+      "bullish:high_volatility": 843
+    }
+  },
+  "before": {
+    "trend_following": {
+      "count": 0,
+      "netPnl": 0,
+      "netReturn": 0,
+      "maxDrawdown": 0,
+      "expectancy": null,
+      "profitFactor": null
+    },
+    "counter_trend": {
+      "count": 0,
+      "netPnl": 0,
+      "netReturn": 0,
+      "maxDrawdown": 0,
+      "expectancy": null,
+      "profitFactor": null,
+      "status": "disabled; no validated counter-trend model/evidence"
+    }
+  },
+  "after": {
+    "trend_following": {
+      "count": 0,
+      "netPnl": 0,
+      "netReturn": 0,
+      "maxDrawdown": 0,
+      "expectancy": null,
+      "profitFactor": null
+    },
+    "counter_trend": {
+      "count": 0,
+      "netPnl": 0,
+      "netReturn": 0,
+      "maxDrawdown": 0,
+      "expectancy": null,
+      "profitFactor": null,
+      "status": "disabled; no validated counter-trend model/evidence"
+    }
+  },
+  "stress": {
+    "count": 0,
+    "netPnl": 0,
+    "netReturn": 0,
+    "maxDrawdown": 0,
+    "expectancy": null,
+    "profitFactor": null
+  },
+  "acceptedFits": 0,
+  "fitErrors": [],
+  "decisionReasons": {
+    "Model not validated/fresh": 6314
+  },
+  "research": {
+    "trend_following": {
+      "normal": {
+        "count": 36,
+        "netPnl": -14.97966741757952,
+        "winRate": 0.3611111111111111,
+        "averageWin": 2.08228315117595,
+        "averageLoss": -1.828232538385516,
+        "profitFactor": 0.6437598204569793,
+        "expectancy": -0.4161018727105422,
+        "averageDurationMs": 15099999.444444444,
+        "maxConsecutiveWins": 3,
+        "maxConsecutiveLosses": 6,
+        "fees": 13.66984066864765,
+        "maxDrawdown": 0.02664276102648444,
+        "sharpe": -3.2655896073637924,
+        "sortino": -4.62336026657858,
+        "calmar": -5.789180192196828,
+        "ratioSampleDays": 32,
+        "ratioWarning": "Short sample; annualized ratios unstable",
+        "byAsset": {
+          "BTCUSDT": {
+            "count": 20,
+            "netPnl": 3.2423873416486515,
+            "winRate": 0.45,
+            "averageWin": 2.323062615173206,
+            "averageLoss": -1.6059251086282003,
+            "profitFactor": 1.183546844134103,
+            "expectancy": 0.16211936708243257,
+            "averageDurationMs": 16289999.5,
+            "maxConsecutiveWins": 3,
+            "maxConsecutiveLosses": 3,
+            "fees": 7.604932711333911
+          },
+          "ETHUSDT": {
+            "count": 16,
+            "netPnl": -18.222054759228172,
+            "winRate": 0.25,
+            "averageWin": 1.5405293571821232,
+            "averageLoss": -2.032014348996389,
+            "profitFactor": 0.2527097242108535,
+            "expectancy": -1.1388784224517607,
+            "averageDurationMs": 13612499.375,
+            "maxConsecutiveWins": 1,
+            "maxConsecutiveLosses": 5,
+            "fees": 6.06490795731374
+          }
+        },
+        "byRegime": {
+          "bullish:low_volatility": {
+            "count": 22,
+            "netPnl": -7.396630054942875,
+            "winRate": 0.4090909090909091,
+            "averageWin": 1.796597413387357,
+            "averageLoss": -1.8127697519560837,
+            "profitFactor": 0.6861313787512395,
+            "expectancy": -0.33621045704285796,
+            "averageDurationMs": 16322726.772727273,
+            "maxConsecutiveWins": 2,
+            "maxConsecutiveLosses": 5,
+            "fees": 8.356125435819152
+          },
+          "bullish:high_volatility": {
+            "count": 14,
+            "netPnl": -7.583037362636645,
+            "winRate": 0.2857142857142857,
+            "averageWin": 2.7250760612002836,
+            "averageLoss": -1.848334160743778,
+            "profitFactor": 0.5897366653881895,
+            "expectancy": -0.5416455259026175,
+            "averageDurationMs": 13178570.785714285,
+            "maxConsecutiveWins": 1,
+            "maxConsecutiveLosses": 3,
+            "fees": 5.3137152328285
+          }
+        },
+        "byMonth": {
+          "2026-08": {
+            "count": 6,
+            "netPnl": -7.841541842884197,
+            "winRate": 0.3333333333333333,
+            "averageWin": 0.8669428949612552,
+            "averageLoss": -2.393856908201677,
+            "profitFactor": 0.18107659066650805,
+            "expectancy": -1.3069236404806996,
+            "averageDurationMs": 14699999.333333334,
+            "maxConsecutiveWins": 1,
+            "maxConsecutiveLosses": 3,
+            "fees": 2.2950146591330265
+          },
+          "2026-09": {
+            "count": 30,
+            "netPnl": -7.138125574695323,
+            "winRate": 0.36666666666666664,
+            "averageWin": 2.3032541068513486,
+            "averageLoss": -1.7091537236873768,
+            "profitFactor": 0.7801889821178399,
+            "expectancy": -0.23793751915651076,
+            "averageDurationMs": 15179999.466666667,
+            "maxConsecutiveWins": 3,
+            "maxConsecutiveLosses": 6,
+            "fees": 11.374826009514624
+          }
+        },
+        "long": {
+          "count": 36,
+          "netPnl": -14.97966741757952,
+          "winRate": 0.3611111111111111,
+          "averageWin": 2.08228315117595,
+          "averageLoss": -1.828232538385516,
+          "profitFactor": 0.6437598204569793,
+          "expectancy": -0.4161018727105422,
+          "averageDurationMs": 15099999.444444444,
+          "maxConsecutiveWins": 3,
+          "maxConsecutiveLosses": 6,
+          "fees": 13.66984066864765
+        },
+        "short": {
+          "count": 0,
+          "note": "Not implemented: long-only spot"
+        }
+      },
+      "netReturn": -0.014979667417579168,
+      "stress": {
+        "count": 0,
+        "netPnl": 0,
+        "winRate": null,
+        "averageWin": null,
+        "averageLoss": null,
+        "profitFactor": null,
+        "expectancy": null,
+        "averageDurationMs": null,
+        "maxConsecutiveWins": 0,
+        "maxConsecutiveLosses": 0,
+        "fees": 0,
+        "maxDrawdown": 0,
+        "sharpe": null,
+        "sortino": null,
+        "calmar": null,
+        "ratioSampleDays": 32,
+        "ratioWarning": "Short sample; annualized ratios unstable",
+        "byAsset": {},
+        "byRegime": {},
+        "byMonth": {},
+        "long": {
+          "count": 0,
+          "netPnl": 0,
+          "winRate": null,
+          "averageWin": null,
+          "averageLoss": null,
+          "profitFactor": null,
+          "expectancy": null,
+          "averageDurationMs": null,
+          "maxConsecutiveWins": 0,
+          "maxConsecutiveLosses": 0,
+          "fees": 0
+        },
+        "short": {
+          "count": 0,
+          "note": "Not implemented: long-only spot"
+        }
+      },
+      "stressNetReturn": 0,
+      "candidateModelDiagnostics": {
+        "candidates": 144,
+        "scoreAboveThreshold": 0,
+        "inTrainingDomain": 136,
+        "modelReady": 0
+      },
+      "fixedTradeCostStress": {
+        "count": 36,
+        "netPnl": -35.48442427673049,
+        "method": "Fixed quantities and quote exit times; doubled fees/slippage only; not a resimulated strategy"
+      },
+      "payoffInterval": {
+        "mean": -0.0021648837864711463,
+        "lower": -0.005267748353921568,
+        "upper": 0.000988923716368141,
+        "blocks": 6,
+        "method": "95% moving-block percentile bootstrap; dependence may exceed block length"
+      },
+      "lockViolations": 0,
+      "warning": "Rules-only hypothesis diagnostic: model validation and score gates omitted; production counter-trend remains disabled."
+    },
+    "counter_trend": {
+      "normal": {
+        "count": 7,
+        "netPnl": -9.77042600800982,
+        "winRate": 0.14285714285714285,
+        "averageWin": 0.32060753195895586,
+        "averageLoss": -1.6818389233281295,
+        "profitFactor": 0.03177152574997267,
+        "expectancy": -1.395775144001403,
+        "averageDurationMs": 18642856.714285713,
+        "maxConsecutiveWins": 1,
+        "maxConsecutiveLosses": 5,
+        "fees": 2.677861902332235,
+        "maxDrawdown": 0.01194399392999701,
+        "sharpe": -7.794685558737999,
+        "sortino": -7.315784488909439,
+        "calmar": -8.644396116355265,
+        "ratioSampleDays": 32,
+        "ratioWarning": "Short sample; annualized ratios unstable",
+        "byAsset": {
+          "BTCUSDT": {
+            "count": 6,
+            "netPnl": -10.091033539968777,
+            "winRate": 0,
+            "averageWin": null,
+            "averageLoss": -1.6818389233281295,
+            "profitFactor": 0,
+            "expectancy": -1.6818389233281295,
+            "averageDurationMs": 18149999.5,
+            "maxConsecutiveWins": 0,
+            "maxConsecutiveLosses": 6,
+            "fees": 2.292779664212505
+          },
+          "ETHUSDT": {
+            "count": 1,
+            "netPnl": 0.32060753195895586,
+            "winRate": 1,
+            "averageWin": 0.32060753195895586,
+            "averageLoss": null,
+            "profitFactor": null,
+            "expectancy": 0.32060753195895586,
+            "averageDurationMs": 21600000,
+            "maxConsecutiveWins": 1,
+            "maxConsecutiveLosses": 0,
+            "fees": 0.3850822381197304
+          }
+        },
+        "byRegime": {
+          "bearish:high_volatility": {
+            "count": 2,
+            "netPnl": -0.3003667589464669,
+            "winRate": 0.5,
+            "averageWin": 0.32060753195895586,
+            "averageLoss": -0.6209742909054228,
+            "profitFactor": 0.5162975934019559,
+            "expectancy": -0.15018337947323346,
+            "averageDurationMs": 21600000,
+            "maxConsecutiveWins": 1,
+            "maxConsecutiveLosses": 1,
+            "fees": 0.7694610272333231
+          },
+          "bearish:low_volatility": {
+            "count": 5,
+            "netPnl": -9.470059249063354,
+            "winRate": 0,
+            "averageWin": null,
+            "averageLoss": -1.8940118498126708,
+            "profitFactor": 0,
+            "expectancy": -1.8940118498126708,
+            "averageDurationMs": 17459999.4,
+            "maxConsecutiveWins": 0,
+            "maxConsecutiveLosses": 5,
+            "fees": 1.9084008750989125
+          }
+        },
+        "byMonth": {
+          "2026-09": {
+            "count": 7,
+            "netPnl": -9.77042600800982,
+            "winRate": 0.14285714285714285,
+            "averageWin": 0.32060753195895586,
+            "averageLoss": -1.6818389233281295,
+            "profitFactor": 0.03177152574997267,
+            "expectancy": -1.395775144001403,
+            "averageDurationMs": 18642856.714285713,
+            "maxConsecutiveWins": 1,
+            "maxConsecutiveLosses": 5,
+            "fees": 2.677861902332235
+          }
+        },
+        "long": {
+          "count": 7,
+          "netPnl": -9.77042600800982,
+          "winRate": 0.14285714285714285,
+          "averageWin": 0.32060753195895586,
+          "averageLoss": -1.6818389233281295,
+          "profitFactor": 0.03177152574997267,
+          "expectancy": -1.395775144001403,
+          "averageDurationMs": 18642856.714285713,
+          "maxConsecutiveWins": 1,
+          "maxConsecutiveLosses": 5,
+          "fees": 2.677861902332235
+        },
+        "short": {
+          "count": 0,
+          "note": "Not implemented: long-only spot"
+        }
+      },
+      "netReturn": -0.009770426008009814,
+      "stress": {
+        "count": 0,
+        "netPnl": 0,
+        "winRate": null,
+        "averageWin": null,
+        "averageLoss": null,
+        "profitFactor": null,
+        "expectancy": null,
+        "averageDurationMs": null,
+        "maxConsecutiveWins": 0,
+        "maxConsecutiveLosses": 0,
+        "fees": 0,
+        "maxDrawdown": 0,
+        "sharpe": null,
+        "sortino": null,
+        "calmar": null,
+        "ratioSampleDays": 32,
+        "ratioWarning": "Short sample; annualized ratios unstable",
+        "byAsset": {},
+        "byRegime": {},
+        "byMonth": {},
+        "long": {
+          "count": 0,
+          "netPnl": 0,
+          "winRate": null,
+          "averageWin": null,
+          "averageLoss": null,
+          "profitFactor": null,
+          "expectancy": null,
+          "averageDurationMs": null,
+          "maxConsecutiveWins": 0,
+          "maxConsecutiveLosses": 0,
+          "fees": 0
+        },
+        "short": {
+          "count": 0,
+          "note": "Not implemented: long-only spot"
+        }
+      },
+      "stressNetReturn": 0,
+      "candidateModelDiagnostics": {
+        "candidates": 13,
+        "scoreAboveThreshold": 0,
+        "inTrainingDomain": 13,
+        "modelReady": 0
+      },
+      "fixedTradeCostStress": {
+        "count": 7,
+        "netPnl": -13.787223176734273,
+        "method": "Fixed quantities and quote exit times; doubled fees/slippage only; not a resimulated strategy"
+      },
+      "payoffInterval": {
+        "mean": -0.00727865650645741,
+        "lower": null,
+        "upper": null,
+        "blocks": 2
+      },
+      "lockViolations": 0,
+      "warning": "Rules-only hypothesis diagnostic: model validation and score gates omitted; production counter-trend remains disabled."
+    }
+  },
+  "conclusion": "Counter-trend remains research-only. Rules-only outcomes are not validated model performance or evidence from an untouched prospective test."
+}

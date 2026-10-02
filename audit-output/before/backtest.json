@@ -1,0 +1,396 @@
+{
+  "normal": {
+    "version": 2,
+    "mode": "historical simulation",
+    "createdAt": 1790343632094,
+    "costMultiplier": 1,
+    "from": 1788444900000,
+    "to": 1790342100000,
+    "trades": [],
+    "netPnl": 0,
+    "endingBalance": 1000,
+    "maxDrawdown": 0,
+    "profitFactor": null,
+    "lockViolations": 0,
+    "folds": [
+      {
+        "time": 1788444900000,
+        "models": {
+          "BTCUSDT": {
+            "count": 738,
+            "brier": 0.008093998497064112,
+            "baselineBrier": 0.007684613194771235,
+            "logLoss": 0.0556095421556246,
+            "passed": false,
+            "reason": "Holdout score does not beat the baseline",
+            "trainingPositiveRate": 0.05331510594668489,
+            "holdoutPositiveRate": 0.005420054200542005,
+            "trainingCount": 2926,
+            "trainLastSignal": 1787734800000,
+            "validationFirstSignal": 1787758200000,
+            "selection": {
+              "rounds": 55,
+              "tuningBrier": 0.14153575692956818,
+              "tuningCount": 586,
+              "trainLastSignal": 1787184900000,
+              "tuningFirstSignal": 1787208300000
+            }
+          },
+          "ETHUSDT": {
+            "count": 738,
+            "brier": 0.062352506073938524,
+            "baselineBrier": 0.058516319187325395,
+            "logLoss": 0.266033367758015,
+            "passed": false,
+            "reason": "Holdout score does not beat the baseline",
+            "trainingPositiveRate": 0.07074504442925496,
+            "holdoutPositiveRate": 0.06233062330623306,
+            "trainingCount": 2926,
+            "trainLastSignal": 1787734800000,
+            "validationFirstSignal": 1787758200000,
+            "selection": {
+              "rounds": 80,
+              "tuningBrier": 0.17800054207641672,
+              "tuningCount": 586,
+              "trainLastSignal": 1787184900000,
+              "tuningFirstSignal": 1787208300000
+            }
+          }
+        }
+      },
+      {
+        "time": 1789049700000,
+        "models": {
+          "BTCUSDT": {
+            "count": 873,
+            "brier": 0.02797775633702797,
+            "baselineBrier": 0.028125371551364756,
+            "logLoss": 0.13111819944900469,
+            "passed": true,
+            "reason": "Holdout score beats the baseline",
+            "trainingPositiveRate": 0.04620271440947156,
+            "holdoutPositiveRate": 0.0286368843069874,
+            "trainingCount": 3463,
+            "trainLastSignal": 1788218100000,
+            "validationFirstSignal": 1788241500000,
+            "selection": {
+              "rounds": 5,
+              "tuningBrier": 0.03048366291799694,
+              "tuningCount": 693,
+              "trainLastSignal": 1787571900000,
+              "tuningFirstSignal": 1787595300000
+            }
+          },
+          "ETHUSDT": {
+            "count": 873,
+            "brier": 0.030768155425373873,
+            "baselineBrier": 0.030768155425373873,
+            "logLoss": 0.151530485108037,
+            "passed": false,
+            "reason": "No predictive improvement on the earlier tuning period",
+            "trainingPositiveRate": 0.0730580421599769,
+            "holdoutPositiveRate": 0.029782359679266894,
+            "trainingCount": 3463,
+            "trainLastSignal": 1788218100000,
+            "validationFirstSignal": 1788241500000,
+            "selection": {
+              "rounds": 0,
+              "tuningBrier": 0.06694768849386737,
+              "tuningCount": 693,
+              "trainLastSignal": 1787571900000,
+              "tuningFirstSignal": 1787595300000
+            }
+          }
+        }
+      },
+      {
+        "time": 1789654500000,
+        "models": {
+          "BTCUSDT": {
+            "count": 1007,
+            "brier": 0.005215274580103497,
+            "baselineBrier": 0.005742851837298211,
+            "logLoss": 0.05293278450923409,
+            "passed": true,
+            "reason": "Holdout score beats the baseline",
+            "trainingPositiveRate": 0.046238440389902526,
+            "holdoutPositiveRate": 0.003972194637537239,
+            "trainingCount": 4001,
+            "trainLastSignal": 1788702300000,
+            "validationFirstSignal": 1788725700000,
+            "selection": {
+              "rounds": 5,
+              "tuningBrier": 0.030241000561017244,
+              "tuningCount": 801,
+              "trainLastSignal": 1787958900000,
+              "tuningFirstSignal": 1787982300000
+            }
+          },
+          "ETHUSDT": {
+            "count": 1007,
+            "brier": 0.03560961402002016,
+            "baselineBrier": 0.03560961402002016,
+            "logLoss": 0.16477312740413233,
+            "passed": false,
+            "reason": "No predictive improvement on the earlier tuning period",
+            "trainingPositiveRate": 0.06948262934266433,
+            "holdoutPositiveRate": 0.03574975173783516,
+            "trainingCount": 4001,
+            "trainLastSignal": 1788702300000,
+            "validationFirstSignal": 1788725700000,
+            "selection": {
+              "rounds": 0,
+              "tuningBrier": 0.05437490742746799,
+              "tuningCount": 801,
+              "trainLastSignal": 1787958900000,
+              "tuningFirstSignal": 1787982300000
+            }
+          }
+        }
+      },
+      {
+        "time": 1790259300000,
+        "models": {
+          "BTCUSDT": {
+            "count": 1141,
+            "brier": 0.044480149500096766,
+            "baselineBrier": 0.04431598388403508,
+            "logLoss": 0.18800054639931554,
+            "passed": false,
+            "reason": "Holdout score does not beat the baseline",
+            "trainingPositiveRate": 0.041639127561136816,
+            "holdoutPositiveRate": 0.04645048203330412,
+            "trainingCount": 4539,
+            "trainLastSignal": 1789186500000,
+            "validationFirstSignal": 1789209900000,
+            "selection": {
+              "rounds": 6,
+              "tuningBrier": 0.030881826046212642,
+              "tuningCount": 908,
+              "trainLastSignal": 1788346800000,
+              "tuningFirstSignal": 1788370200000
+            }
+          },
+          "ETHUSDT": {
+            "count": 1141,
+            "brier": 0.0932491615823013,
+            "baselineBrier": 0.09277299622603637,
+            "logLoss": 0.3429940349909037,
+            "passed": false,
+            "reason": "Holdout score does not beat the baseline",
+            "trainingPositiveRate": 0.06367041198501873,
+            "holdoutPositiveRate": 0.1016652059596845,
+            "trainingCount": 4539,
+            "trainLastSignal": 1789186500000,
+            "validationFirstSignal": 1789209900000,
+            "selection": {
+              "rounds": 4,
+              "tuningBrier": 0.03871299271072612,
+              "tuningCount": 908,
+              "trainLastSignal": 1788346800000,
+              "tuningFirstSignal": 1788370200000
+            }
+          }
+        }
+      }
+    ],
+    "note": "15-minute OHLC approximation; no order book or partial fills. Zero trades do not validate a strategy."
+  },
+  "stress": {
+    "version": 2,
+    "mode": "historical simulation",
+    "createdAt": 1790343637546,
+    "costMultiplier": 2,
+    "from": 1788444900000,
+    "to": 1790342100000,
+    "trades": [],
+    "netPnl": 0,
+    "endingBalance": 1000,
+    "maxDrawdown": 0,
+    "profitFactor": null,
+    "lockViolations": 0,
+    "folds": [
+      {
+        "time": 1788444900000,
+        "models": {
+          "BTCUSDT": {
+            "count": 738,
+            "brier": 0.008093998497064112,
+            "baselineBrier": 0.007684613194771235,
+            "logLoss": 0.0556095421556246,
+            "passed": false,
+            "reason": "Holdout score does not beat the baseline",
+            "trainingPositiveRate": 0.05331510594668489,
+            "holdoutPositiveRate": 0.005420054200542005,
+            "trainingCount": 2926,
+            "trainLastSignal": 1787734800000,
+            "validationFirstSignal": 1787758200000,
+            "selection": {
+              "rounds": 55,
+              "tuningBrier": 0.14153575692956818,
+              "tuningCount": 586,
+              "trainLastSignal": 1787184900000,
+              "tuningFirstSignal": 1787208300000
+            }
+          },
+          "ETHUSDT": {
+            "count": 738,
+            "brier": 0.062352506073938524,
+            "baselineBrier": 0.058516319187325395,
+            "logLoss": 0.266033367758015,
+            "passed": false,
+            "reason": "Holdout score does not beat the baseline",
+            "trainingPositiveRate": 0.07074504442925496,
+            "holdoutPositiveRate": 0.06233062330623306,
+            "trainingCount": 2926,
+            "trainLastSignal": 1787734800000,
+            "validationFirstSignal": 1787758200000,
+            "selection": {
+              "rounds": 80,
+              "tuningBrier": 0.17800054207641672,
+              "tuningCount": 586,
+              "trainLastSignal": 1787184900000,
+              "tuningFirstSignal": 1787208300000
+            }
+          }
+        }
+      },
+      {
+        "time": 1789049700000,
+        "models": {
+          "BTCUSDT": {
+            "count": 873,
+            "brier": 0.02797775633702797,
+            "baselineBrier": 0.028125371551364756,
+            "logLoss": 0.13111819944900469,
+            "passed": true,
+            "reason": "Holdout score beats the baseline",
+            "trainingPositiveRate": 0.04620271440947156,
+            "holdoutPositiveRate": 0.0286368843069874,
+            "trainingCount": 3463,
+            "trainLastSignal": 1788218100000,
+            "validationFirstSignal": 1788241500000,
+            "selection": {
+              "rounds": 5,
+              "tuningBrier": 0.03048366291799694,
+              "tuningCount": 693,
+              "trainLastSignal": 1787571900000,
+              "tuningFirstSignal": 1787595300000
+            }
+          },
+          "ETHUSDT": {
+            "count": 873,
+            "brier": 0.030768155425373873,
+            "baselineBrier": 0.030768155425373873,
+            "logLoss": 0.151530485108037,
+            "passed": false,
+            "reason": "No predictive improvement on the earlier tuning period",
+            "trainingPositiveRate": 0.0730580421599769,
+            "holdoutPositiveRate": 0.029782359679266894,
+            "trainingCount": 3463,
+            "trainLastSignal": 1788218100000,
+            "validationFirstSignal": 1788241500000,
+            "selection": {
+              "rounds": 0,
+              "tuningBrier": 0.06694768849386737,
+              "tuningCount": 693,
+              "trainLastSignal": 1787571900000,
+              "tuningFirstSignal": 1787595300000
+            }
+          }
+        }
+      },
+      {
+        "time": 1789654500000,
+        "models": {
+          "BTCUSDT": {
+            "count": 1007,
+            "brier": 0.005215274580103497,
+            "baselineBrier": 0.005742851837298211,
+            "logLoss": 0.05293278450923409,
+            "passed": true,
+            "reason": "Holdout score beats the baseline",
+            "trainingPositiveRate": 0.046238440389902526,
+            "holdoutPositiveRate": 0.003972194637537239,
+            "trainingCount": 4001,
+            "trainLastSignal": 1788702300000,
+            "validationFirstSignal": 1788725700000,
+            "selection": {
+              "rounds": 5,
+              "tuningBrier": 0.030241000561017244,
+              "tuningCount": 801,
+              "trainLastSignal": 1787958900000,
+              "tuningFirstSignal": 1787982300000
+            }
+          },
+          "ETHUSDT": {
+            "count": 1007,
+            "brier": 0.03560961402002016,
+            "baselineBrier": 0.03560961402002016,
+            "logLoss": 0.16477312740413233,
+            "passed": false,
+            "reason": "No predictive improvement on the earlier tuning period",
+            "trainingPositiveRate": 0.06948262934266433,
+            "holdoutPositiveRate": 0.03574975173783516,
+            "trainingCount": 4001,
+            "trainLastSignal": 1788702300000,
+            "validationFirstSignal": 1788725700000,
+            "selection": {
+              "rounds": 0,
+              "tuningBrier": 0.05437490742746799,
+              "tuningCount": 801,
+              "trainLastSignal": 1787958900000,
+              "tuningFirstSignal": 1787982300000
+            }
+          }
+        }
+      },
+      {
+        "time": 1790259300000,
+        "models": {
+          "BTCUSDT": {
+            "count": 1141,
+            "brier": 0.044480149500096766,
+            "baselineBrier": 0.04431598388403508,
+            "logLoss": 0.18800054639931554,
+            "passed": false,
+            "reason": "Holdout score does not beat the baseline",
+            "trainingPositiveRate": 0.041639127561136816,
+            "holdoutPositiveRate": 0.04645048203330412,
+            "trainingCount": 4539,
+            "trainLastSignal": 1789186500000,
+            "validationFirstSignal": 1789209900000,
+            "selection": {
+              "rounds": 6,
+              "tuningBrier": 0.030881826046212642,
+              "tuningCount": 908,
+              "trainLastSignal": 1788346800000,
+              "tuningFirstSignal": 1788370200000
+            }
+          },
+          "ETHUSDT": {
+            "count": 1141,
+            "brier": 0.0932491615823013,
+            "baselineBrier": 0.09277299622603637,
+            "logLoss": 0.3429940349909037,
+            "passed": false,
+            "reason": "Holdout score does not beat the baseline",
+            "trainingPositiveRate": 0.06367041198501873,
+            "holdoutPositiveRate": 0.1016652059596845,
+            "trainingCount": 4539,
+            "trainLastSignal": 1789186500000,
+            "validationFirstSignal": 1789209900000,
+            "selection": {
+              "rounds": 4,
+              "tuningBrier": 0.03871299271072612,
+              "tuningCount": 908,
+              "trainLastSignal": 1788346800000,
+              "tuningFirstSignal": 1788370200000
+            }
+          }
+        }
+      }
+    ],
+    "note": "15-minute OHLC approximation; no order book or partial fills. Zero trades do not validate a strategy."
+  }
+}

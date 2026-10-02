@@ -6,9 +6,13 @@ import path from 'node:path';
 import { config,ROOT } from './config.js';
 import { Store } from './store.js';
 import { Engine,modelReady } from './engine.js';
-import { lockUntil } from './risk.js';
+import { lockUntil,riskStatus } from './risk.js';
+import { trainingDue } from './lifecycle.js';
+import { provenance,compatibleReport } from './provenance.js';
+import { modelDiagnostics } from './model-diagnostics.js';
 export function createApp(store,engine,c=config,startJob=()=>{}) {
   const app=express(),token=randomBytes(32).toString('hex');
+  const currentProvenance=provenance(c,null);
   app.disable('x-powered-by');
   app.use((req,res,next)=>{
     const localPort=req.socket.localPort;
@@ -25,17 +29,17 @@ export function createApp(store,engine,c=config,startJob=()=>{}) {
   app.use(express.json({limit:'8kb'}));
   app.get('/api/status',(req,res)=>{
     const s=store.read(),now=Date.now(),until=lockUntil(s.trades,now);
-    const models=Object.fromEntries(c.symbols.map(symbol=>{const m=store.model(symbol);return [symbol,m?{trainedAt:m.trainedAt,validation:m.validation,ready:!!modelReady(m,c,now),trees:m.trees.length}:null];}));
+    const models=Object.fromEntries(c.symbols.map(symbol=>{const m=store.model(symbol);return [symbol,m?{trainedAt:m.trainedAt,validation:m.validation,diagnostics:modelDiagnostics(m,c),ready:!!modelReady(m,c,now),trees:m.trees.length}:null];}));
     const q=s.position?engine.markets[s.position.symbol]?.quote:null;
     const equity=s.cash+(s.position?(q?q.bid*(1-s.position.slippage)*s.position.qty*(1-s.position.fee):s.position.cost):0);
-    res.json({token,totalPnl:s.trades.reduce((n,t)=>n+t.pnl,0),totalTrades:s.trades.length,wins:s.trades.filter(t=>t.pnl>0).length,mode:'paper',state:{...s,trades:s.trades.slice(-100).reverse()},equity,markEstimated:!!s.position&&!q,lockUntil:Number.isFinite(until)?until:null,lockError:until===Infinity,health:engine.health,markets:engine.markets,models,job:app.locals.job||null,events:store.events(),settings:{threshold:c.threshold,riskFraction:c.riskFraction,initialBalance:s.initialBalance,pollSeconds:c.pollSeconds}});
+    res.json({token,totalPnl:s.trades.reduce((n,t)=>n+t.pnl,0),totalTrades:s.trades.length,wins:s.trades.filter(t=>t.pnl>0).length,mode:'paper',state:{...s,trades:s.trades.slice(-100).reverse()},equity,markEstimated:!!s.position&&(!q||now-q.at>15000),risk:riskStatus(s,now,c),lockUntil:Number.isFinite(until)?until:null,lockError:until===Infinity,health:engine.health,markets:engine.markets,models,job:app.locals.job||null,events:store.events(),settings:{threshold:c.threshold,riskFraction:c.riskFraction,initialBalance:s.initialBalance,pollSeconds:c.pollSeconds}});
   });
   app.post('/api/start',(req,res)=>{store.change(s=>{s.enabled=true;});store.event('Automatic paper entries enabled');res.json({ok:true});});
   app.post('/api/pause',(req,res)=>{store.change(s=>{s.enabled=false;});store.event('New entries paused; open-position exits remain active');res.json({ok:true});});
   app.post('/api/close',async(req,res)=>{await engine.closeNow();res.json({ok:true});});
   app.post('/api/train',(req,res)=>{startJob('train');res.json({ok:true});});
   app.post('/api/backtest',(req,res)=>{startJob('backtest');res.json({ok:true});});
-  app.get('/api/backtest',(req,res)=>{try{res.json(JSON.parse(readFileSync(path.join(ROOT,'data','backtest.json'),'utf8')));}catch{res.status(404).json({error:'No backtest yet. Train/download data first, then run a backtest.'});}});
+  app.get('/api/backtest',(req,res)=>{try{const report=JSON.parse(readFileSync(path.join(ROOT,'data','backtest.json'),'utf8'));if(!compatibleReport(report,currentProvenance))return res.status(409).json({error:'Saved backtest uses an older source or configuration. Run a new backtest.'});res.json(report);}catch{res.status(404).json({error:'No readable backtest yet. Train/download data first, then run a backtest.'});}});
   app.use(express.static(path.join(ROOT,'public')));
   app.use((err,req,res,next)=>res.status(400).json({error:err.message}));
   return app;
@@ -43,6 +47,7 @@ export function createApp(store,engine,c=config,startJob=()=>{}) {
 if(process.argv[1]===new URL(import.meta.url).pathname || process.argv[1]?.replaceAll('\\','/').endsWith('/src/server.js')) {
   if(Number(process.versions.node.split('.')[0])!==24)throw Error('Install Node.js 24 LTS to run this app.');
   const store=new Store(path.join(ROOT,'data','paper.sqlite'),config.initialBalance),engine=new Engine(store,config);
+  store.acquireLease();
   let worker=null,lastAttempt=0;
   const app=createApp(store,engine,config,type=>startJob(type));
   function startJob(type) {
@@ -62,7 +67,7 @@ if(process.argv[1]===new URL(import.meta.url).pathname || process.argv[1]?.repla
     console.log(`\nTrendGuard • PAPER ONLY\nOpen http://localhost:${config.port}\nNo exchange keys, Docker, or Python required.\nKeep this terminal running. Ctrl+C stops monitoring.\n`);
     const loop=async()=>{
       if(store.read().enabled&&!worker&&Date.now()-lastAttempt>3600_000) {
-        const needsTraining=config.symbols.some(s=>{const m=store.model(s);return !m||Date.now()-m.trainedAt>config.retrainHours*3600_000;});
+        const needsTraining=config.symbols.some(s=>trainingDue(store.model(s),config,Date.now()));
         if(needsTraining)startJob('train');
       }
       await engine.tick();

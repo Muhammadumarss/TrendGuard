@@ -1,3 +1,19 @@
+# Production-readiness follow-up — 2026-09-26
+
+65 tests pass. Added malformed-artifact, unsupported-input/score, execution-eligibility, monotonic-publication, partial-job-failure, stale-report and rate-limit/concurrency regressions. Prediction logic and normal/stress simulations were rerun offline. See audit-output/PRODUCTION-READINESS-REVIEW.md and audit-output/production-review/summary.json for the current scope and numerical evidence. Earlier dated verification below is retained as historical context.
+
+---
+
+# Current audit-fix verification — 2026-09-25
+
+Node v24.21.0 on Windows. The complete suite now has 50 passing tests covering the original controls plus audit regressions, financial-state validation, feature parity, calibration separation, lifecycle parity, risk budgets, final liquidation and provenance. See audit-output/IMPLEMENTATION-REPORT.md for scope and limitations.
+
+Run npm.cmd test and node verification/evaluate-audit.js. The offline evaluator uses frozen local candles and never publishes models or changes the paper account. Current reconstructed common-target Brier: BTC 0.049471 before / 0.045391 after; ETH 0.103606 before / 0.095518 after. Both models remain blocked by the stronger evidence gates. Normal and stressed repaired replay have zero trades, so there is no profitability evidence.
+
+The repaired replay requires a complete rolling 60-day training window; supplied data permits only September 22–25. Previously reported runs below used older source/assumptions and remain historical evidence only. Exact artifacts, model metadata and config/data/source hashes are retained in audit-output. A genuinely untouched future evaluation and quote-path execution validation are still outstanding.
+
+---
+
 # Verification — JavaScript edition
 
 Checked on 2026-09-21 using Node.js 24.19.0, npm 11.9.0 and Express 5.2.1 on Linux. The Windows launcher is provided but was not executed on a Windows host.

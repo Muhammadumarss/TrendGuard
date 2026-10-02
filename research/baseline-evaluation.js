@@ -1,0 +1,20 @@
+import { readFileSync,writeFileSync } from 'node:fs';
+import { loadHistory } from './history.js';
+import { config } from '../audit-output/strategy-improvement/before/src/config.js';
+import { backtest } from '../audit-output/strategy-improvement/before/src/backtest.js';
+import { trainModel } from '../audit-output/strategy-improvement/before/src/training.js';
+import { hash } from '../src/provenance.js';
+
+const dir=new URL('../audit-output/strategy-improvement/',import.meta.url);
+const protocol=JSON.parse(readFileSync(new URL('./strategy-protocol.json',import.meta.url),'utf8'));
+const {all}=loadHistory(dir,config.symbols),startAt=Date.parse(protocol.selectionEnd),from=startAt-config.trainingDays*86400000;
+const history=Object.fromEntries(Object.entries(all).map(([s,b])=>[s,b.filter(r=>r.time>=from&&r.time<Date.parse(protocol.testEnd))]));
+let fits=0;
+const trainer=(bars,c,at)=>{if(fits++%20===0)console.log(`Baseline fit ${fits}: ${new Date(at).toISOString()}`);return trainModel(bars,c,at);};
+const result=backtest(history,config,{startAt,trainer});
+writeFileSync(new URL('baseline-model-schedule.json',dir),JSON.stringify(result.modelSchedule));
+const {modelSchedule,decisions,...report}=result;
+report.scheduleHash=hash(modelSchedule);report.protocolHash=hash(protocol);
+report.decisions=decisions.reduce((n,r)=>{const k=r.reason??'entry';n[k]=(n[k]??0)+1;return n;},{});
+writeFileSync(new URL('baseline-2025.json',dir),JSON.stringify(report,null,2));
+console.log(JSON.stringify({fits,metrics:result.metrics,acceptedFits:result.folds.filter(f=>f.validation?.passed).length,errors:result.folds.filter(f=>f.error).length}));

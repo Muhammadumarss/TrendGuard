@@ -1,3 +1,4 @@
+import { acceptedModel } from '../verification/accepted-model-fixture.js';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { once } from 'node:events';
@@ -5,7 +6,7 @@ import { request } from 'node:http';
 import { config,signature } from '../src/config.js';
 import { Store } from '../src/store.js';
 import { createApp } from '../src/server.js';
-import { Engine,openPaper } from '../src/engine.js';
+import { Engine,openPaper,closePaper } from '../src/engine.js';
 import { BAR } from '../src/risk.js';
 import { trainModel,fitWithTuning } from '../src/training.js';
 import { backtest } from '../src/backtest.js';
@@ -16,7 +17,7 @@ function trendBars(now) {
 function fixture(now) {
  const st=new Store(':memory:');st.change(s=>{s.enabled=true;});
  const b=trendBars(now),q={bid:b.at(-1).close,ask:b.at(-1).close+.001,at:now};
- for(const symbol of config.symbols)st.putModel(symbol,{version:2,base:Math.log(4),trees:[],rate:.08,signature:signature(config),trainedAt:now,dataThrough:now-1000,validation:{passed:true}});
+ for(const symbol of config.symbols)st.putModel(symbol,acceptedModel(config,now));
  const api={exchangeTime:async()=>now,recent:async()=>b,quote:async()=>q};
  return {st,q,api};
 }
@@ -25,12 +26,13 @@ test('Engine opens only one paper position even with simultaneous ticks',async t
  const {st,api}=fixture(now),e=new Engine(st,config,api);
  await Promise.all([e.tick(),e.tick()]);assert.ok(st.read().position);assert.equal(st.read().position.symbol,'BTCUSDT');assert.ok(st.read().cash<1000);st.close();
 });
-test('Exits continue while entries are paused; loss blocks both pairs',async t=>{
+test('Exits continue while entries are paused; second loss blocks both pairs',async t=>{
  const now=Date.UTC(2026,8,21,12,0,10);t.mock.method(Date,'now',()=>now);
  const {st,api,q}=fixture(now),e=new Engine(st,config,api);
+ st.change(s=>{openPaper(s,'ETHUSDT',100,now-90_000,config);closePaper(s,98,now-60_000,'stop_loss');});
  st.change(s=>{openPaper(s,'BTCUSDT',100,now-30_000,config);s.enabled=false;});
  q.bid=98;q.ask=98.01;
- await e.tick();assert.equal(st.read().position,null);assert.equal(st.read().trades.length,1);assert.ok(st.read().trades[0].pnl<0);
+ await e.tick();assert.equal(st.read().position,null);assert.equal(st.read().trades.length,2);assert.ok(st.read().trades.every(t=>t.pnl<0));
  st.change(s=>{s.enabled=true;});await e.tick();assert.equal(st.read().position,null);assert.match(e.health.message,/loss lock/);st.close();
 });
 test('Stale data and network failure produce no entry',async t=>{
@@ -82,7 +84,9 @@ test('Tuning allows no trees when features have no predictive information',()=>{
  assert.equal(m.selection.rounds,0);assert.equal(m.trees.length,0);
 });
 test('Walk-forward backtest executes and preserves daily loss rule',()=>{
- const b=synthetic(4000),r=backtest({BTCUSDT:b,ETHUSDT:b},config);
+ const b=synthetic(4000),c={...config,trainingDays:30};
+ const trainer=(history,c,now)=>acceptedModel(c,now);
+ const r=backtest({BTCUSDT:b,ETHUSDT:b},c,{trainer});
  assert.ok(r.folds.length>0);assert.ok(r.trades.length>0, "Synthetic test must exercise actual trade execution");assert.equal(r.lockViolations,0);assert.ok(Number.isFinite(r.netPnl));assert.ok(r.maxDrawdown>=0);
  for(const t of r.trades){assert.ok(t.closedAt>=t.openedAt);assert.ok(t.fees>0);}
 });

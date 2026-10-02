@@ -1,0 +1,823 @@
+{
+  "provenance": {
+    "config": {
+      "backtestSpread": 0.001,
+      "trainingLatencyBars": 1,
+      "dailyLossFraction": 0.005,
+      "weeklyLossFraction": 0.02,
+      "maxDrawdownFraction": 0.1,
+      "maxConsecutiveLosses": 4,
+      "minEvidenceTrades": 30,
+      "mode": "paper",
+      "port": 3000,
+      "symbols": [
+        "BTCUSDT",
+        "ETHUSDT"
+      ],
+      "initialBalance": 1000,
+      "fee": 0.001,
+      "slippage": 0.0005,
+      "stop": 0.01,
+      "takeProfit": 0.02,
+      "riskFraction": 0.0025,
+      "maxAllocation": 0.2,
+      "minStake": 10,
+      "threshold": 0.6,
+      "horizon": 24,
+      "trainingDays": 60,
+      "modelMaxAgeHours": 24,
+      "retrainHours": 12,
+      "pollSeconds": 15,
+      "maxSpread": 0.002,
+      "maxEntryDrift": 0.003
+    },
+    "configHash": "e46e778dd07f8f3f0456b94b27cd87f769678b479735268f02c109a172b07674",
+    "dataHash": "6b28b71a7eb76d748adc2c39de94e06131f3a773fc42a232f154a5b237d4f6ba",
+    "sourceHash": "647662dfaf4f019e99a1214639fb2870f360763b21748672fc1f5864dc84e7e1",
+    "node": "v24.21.0"
+  },
+  "evaluatedAt": "2026-09-25T19:10:29.220Z",
+  "predictions": {
+    "BTCUSDT": {
+      "beforeNative": {
+        "count": 1107,
+        "brier": 0.0490718092539982,
+        "baselineBrier": 0.04560944537176947,
+        "logLoss": 0.18315834164214664,
+        "passed": false,
+        "reason": "Holdout score does not beat the baseline",
+        "trainingPositiveRate": 0.04292527821939587,
+        "holdoutPositiveRate": 0.04787714543812105,
+        "trainingCount": 4403,
+        "trainLastSignal": 1789300800000,
+        "validationFirstSignal": 1789324200000
+      },
+      "afterNative": {
+        "count": 1088,
+        "brier": 0.045391409279520976,
+        "baselineBrier": 0.04552777745076825,
+        "logLoss": 0.1819317641962224,
+        "passed": false,
+        "qualityPassed": false,
+        "reason": "Holdout improvement is absent or uncertain",
+        "improvement": {
+          "mean": 0.0001363681712463942,
+          "lower": -0.005092183161854033,
+          "upper": 0.007454369113005227,
+          "blocks": 43,
+          "method": "95% moving-block percentile bootstrap; dependence may exceed block length"
+        },
+        "economic": {
+          "count": 0,
+          "expectedNetReturn": null,
+          "minScore": null,
+          "maxScore": null,
+          "interval": {
+            "mean": null,
+            "lower": null,
+            "upper": null,
+            "blocks": 0
+          },
+          "supported": false,
+          "selectedRows": 0,
+          "regimes": {
+            "bearish:low_volatility": {
+              "count": 0,
+              "expectedNetReturn": null,
+              "minScore": null,
+              "maxScore": null,
+              "interval": {
+                "mean": null,
+                "lower": null,
+                "upper": null,
+                "blocks": 0
+              },
+              "supported": false
+            },
+            "range:high_volatility": {
+              "count": 0,
+              "expectedNetReturn": null,
+              "minScore": null,
+              "maxScore": null,
+              "interval": {
+                "mean": null,
+                "lower": null,
+                "upper": null,
+                "blocks": 0
+              },
+              "supported": false
+            },
+            "bullish:high_volatility": {
+              "count": 0,
+              "expectedNetReturn": null,
+              "minScore": null,
+              "maxScore": null,
+              "interval": {
+                "mean": null,
+                "lower": null,
+                "upper": null,
+                "blocks": 0
+              },
+              "supported": false
+            },
+            "bullish:low_volatility": {
+              "count": 0,
+              "expectedNetReturn": null,
+              "minScore": null,
+              "maxScore": null,
+              "interval": {
+                "mean": null,
+                "lower": null,
+                "upper": null,
+                "blocks": 0
+              },
+              "supported": false
+            },
+            "range:low_volatility": {
+              "count": 0,
+              "expectedNetReturn": null,
+              "minScore": null,
+              "maxScore": null,
+              "interval": {
+                "mean": null,
+                "lower": null,
+                "upper": null,
+                "blocks": 0
+              },
+              "supported": false
+            },
+            "bearish:high_volatility": {
+              "count": 0,
+              "expectedNetReturn": null,
+              "minScore": null,
+              "maxScore": null,
+              "interval": {
+                "mean": null,
+                "lower": null,
+                "upper": null,
+                "blocks": 0
+              },
+              "supported": false
+            }
+          },
+          "interpretation": "Historical non-overlapping selected examples; not a portfolio backtest or guaranteed expectation"
+        },
+        "outsideDomainCount": 1,
+        "predictions": {
+          "target": "TP before stop or expiry; not probability of a profitable close",
+          "threshold": 0.6,
+          "count": 1088,
+          "accuracy": 0.9522058823529411,
+          "precision": null,
+          "recall": 0,
+          "f1": 0,
+          "tp": 0,
+          "fp": 0,
+          "tn": 1036,
+          "fn": 52,
+          "meanPredicted": 0.06021867692358319,
+          "observedRate": 0.04779411764705882,
+          "ece": 0.024811683204729117,
+          "bins": [
+            {
+              "from": 0,
+              "to": 0.1,
+              "count": 751,
+              "predicted": 0.025647675876240714,
+              "actual": 0.03462050599201065,
+              "support": "higher"
+            },
+            {
+              "from": 0.1,
+              "to": 0.2,
+              "count": 337,
+              "predicted": 0.13725969112700906,
+              "actual": 0.0771513353115727,
+              "support": "higher"
+            },
+            {
+              "from": 0.2,
+              "to": 0.3,
+              "count": 0,
+              "predicted": null,
+              "actual": null,
+              "support": "low"
+            },
+            {
+              "from": 0.3,
+              "to": 0.4,
+              "count": 0,
+              "predicted": null,
+              "actual": null,
+              "support": "low"
+            },
+            {
+              "from": 0.4,
+              "to": 0.5,
+              "count": 0,
+              "predicted": null,
+              "actual": null,
+              "support": "low"
+            },
+            {
+              "from": 0.5,
+              "to": 0.6,
+              "count": 0,
+              "predicted": null,
+              "actual": null,
+              "support": "low"
+            },
+            {
+              "from": 0.6,
+              "to": 0.7,
+              "count": 0,
+              "predicted": null,
+              "actual": null,
+              "support": "low"
+            },
+            {
+              "from": 0.7,
+              "to": 0.8,
+              "count": 0,
+              "predicted": null,
+              "actual": null,
+              "support": "low"
+            },
+            {
+              "from": 0.8,
+              "to": 0.9,
+              "count": 0,
+              "predicted": null,
+              "actual": null,
+              "support": "low"
+            },
+            {
+              "from": 0.9,
+              "to": 1,
+              "count": 0,
+              "predicted": null,
+              "actual": null,
+              "support": "low"
+            }
+          ]
+        },
+        "trainingPositiveRate": 0.04355885078776645,
+        "holdoutPositiveRate": 0.04779411764705882,
+        "trainingCount": 3237,
+        "trainLastSignal": 1788339600000,
+        "calibrationFirstSignal": 1788363000000,
+        "calibrationLastSignal": 1789317900000,
+        "validationFirstSignal": 1789341300000
+      },
+      "commonTargetDefinition": "long TP before stop or expiry; timeout can have positive or negative P&L",
+      "commonFrom": 1789341300000,
+      "commonCount": 1088,
+      "before": {
+        "count": 1088,
+        "brier": 0.049471234867978456,
+        "accuracy": 0.9522058823529411,
+        "precision": null,
+        "recall": 0,
+        "f1": 0,
+        "meanPredicted": 0.06690175716780168,
+        "observedRate": 0.04779411764705882,
+        "ece": 0.03236761064646826,
+        "bins": [
+          {
+            "count": 906,
+            "predicted": 0.03756389651761587,
+            "actual": 0.03642384105960265
+          },
+          {
+            "count": 79,
+            "predicted": 0.12388070515956259,
+            "actual": 0.21518987341772153
+          },
+          {
+            "count": 66,
+            "predicted": 0.25399483976998233,
+            "actual": 0.030303030303030304
+          },
+          {
+            "count": 37,
+            "predicted": 0.3298915248968674,
+            "actual": 0
+          },
+          {
+            "count": 0,
+            "predicted": null,
+            "actual": null
+          },
+          {
+            "count": 0,
+            "predicted": null,
+            "actual": null
+          },
+          {
+            "count": 0,
+            "predicted": null,
+            "actual": null
+          },
+          {
+            "count": 0,
+            "predicted": null,
+            "actual": null
+          },
+          {
+            "count": 0,
+            "predicted": null,
+            "actual": null
+          },
+          {
+            "count": 0,
+            "predicted": null,
+            "actual": null
+          }
+        ]
+      },
+      "after": {
+        "count": 1088,
+        "brier": 0.045391409279520976,
+        "accuracy": 0.9522058823529411,
+        "precision": null,
+        "recall": 0,
+        "f1": 0,
+        "meanPredicted": 0.06021867692358319,
+        "observedRate": 0.04779411764705882,
+        "ece": 0.024811683204729117,
+        "bins": [
+          {
+            "count": 751,
+            "predicted": 0.025647675876240714,
+            "actual": 0.03462050599201065
+          },
+          {
+            "count": 337,
+            "predicted": 0.13725969112700906,
+            "actual": 0.0771513353115727
+          },
+          {
+            "count": 0,
+            "predicted": null,
+            "actual": null
+          },
+          {
+            "count": 0,
+            "predicted": null,
+            "actual": null
+          },
+          {
+            "count": 0,
+            "predicted": null,
+            "actual": null
+          },
+          {
+            "count": 0,
+            "predicted": null,
+            "actual": null
+          },
+          {
+            "count": 0,
+            "predicted": null,
+            "actual": null
+          },
+          {
+            "count": 0,
+            "predicted": null,
+            "actual": null
+          },
+          {
+            "count": 0,
+            "predicted": null,
+            "actual": null
+          },
+          {
+            "count": 0,
+            "predicted": null,
+            "actual": null
+          }
+        ]
+      }
+    },
+    "ETHUSDT": {
+      "beforeNative": {
+        "count": 1107,
+        "brier": 0.1139614382445804,
+        "baselineBrier": 0.10413095679434446,
+        "logLoss": 0.40070705458691197,
+        "passed": false,
+        "reason": "Holdout score does not beat the baseline",
+        "trainingPositiveRate": 0.06404724051782876,
+        "holdoutPositiveRate": 0.11472448057813911,
+        "trainingCount": 4403,
+        "trainLastSignal": 1789300800000,
+        "validationFirstSignal": 1789324200000
+      },
+      "afterNative": {
+        "count": 1088,
+        "brier": 0.09551816686336301,
+        "baselineBrier": 0.09197931499151006,
+        "logLoss": 0.37503591468801517,
+        "passed": false,
+        "qualityPassed": false,
+        "reason": "Holdout improvement is absent or uncertain",
+        "improvement": {
+          "mean": -0.0035388518718489897,
+          "lower": -0.008551064130011263,
+          "upper": 0.0012163238602538402,
+          "blocks": 43,
+          "method": "95% moving-block percentile bootstrap; dependence may exceed block length"
+        },
+        "economic": {
+          "count": 0,
+          "expectedNetReturn": null,
+          "minScore": null,
+          "maxScore": null,
+          "interval": {
+            "mean": null,
+            "lower": null,
+            "upper": null,
+            "blocks": 0
+          },
+          "supported": false,
+          "selectedRows": 0,
+          "regimes": {
+            "bearish:low_volatility": {
+              "count": 0,
+              "expectedNetReturn": null,
+              "minScore": null,
+              "maxScore": null,
+              "interval": {
+                "mean": null,
+                "lower": null,
+                "upper": null,
+                "blocks": 0
+              },
+              "supported": false
+            },
+            "bearish:high_volatility": {
+              "count": 0,
+              "expectedNetReturn": null,
+              "minScore": null,
+              "maxScore": null,
+              "interval": {
+                "mean": null,
+                "lower": null,
+                "upper": null,
+                "blocks": 0
+              },
+              "supported": false
+            },
+            "range:high_volatility": {
+              "count": 0,
+              "expectedNetReturn": null,
+              "minScore": null,
+              "maxScore": null,
+              "interval": {
+                "mean": null,
+                "lower": null,
+                "upper": null,
+                "blocks": 0
+              },
+              "supported": false
+            },
+            "range:low_volatility": {
+              "count": 0,
+              "expectedNetReturn": null,
+              "minScore": null,
+              "maxScore": null,
+              "interval": {
+                "mean": null,
+                "lower": null,
+                "upper": null,
+                "blocks": 0
+              },
+              "supported": false
+            },
+            "bullish:low_volatility": {
+              "count": 0,
+              "expectedNetReturn": null,
+              "minScore": null,
+              "maxScore": null,
+              "interval": {
+                "mean": null,
+                "lower": null,
+                "upper": null,
+                "blocks": 0
+              },
+              "supported": false
+            },
+            "bullish:high_volatility": {
+              "count": 0,
+              "expectedNetReturn": null,
+              "minScore": null,
+              "maxScore": null,
+              "interval": {
+                "mean": null,
+                "lower": null,
+                "upper": null,
+                "blocks": 0
+              },
+              "supported": false
+            }
+          },
+          "interpretation": "Historical non-overlapping selected examples; not a portfolio backtest or guaranteed expectation"
+        },
+        "outsideDomainCount": 43,
+        "predictions": {
+          "target": "TP before stop or expiry; not probability of a profitable close",
+          "threshold": 0.6,
+          "count": 1088,
+          "accuracy": 0.8988970588235294,
+          "precision": null,
+          "recall": 0,
+          "f1": 0,
+          "tp": 0,
+          "fp": 0,
+          "tn": 978,
+          "fn": 110,
+          "meanPredicted": 0.03300719680559909,
+          "observedRate": 0.10110294117647059,
+          "ece": 0.0680957443708715,
+          "bins": [
+            {
+              "from": 0,
+              "to": 0.1,
+              "count": 1088,
+              "predicted": 0.03300719680559909,
+              "actual": 0.10110294117647059,
+              "support": "higher"
+            },
+            {
+              "from": 0.1,
+              "to": 0.2,
+              "count": 0,
+              "predicted": null,
+              "actual": null,
+              "support": "low"
+            },
+            {
+              "from": 0.2,
+              "to": 0.3,
+              "count": 0,
+              "predicted": null,
+              "actual": null,
+              "support": "low"
+            },
+            {
+              "from": 0.3,
+              "to": 0.4,
+              "count": 0,
+              "predicted": null,
+              "actual": null,
+              "support": "low"
+            },
+            {
+              "from": 0.4,
+              "to": 0.5,
+              "count": 0,
+              "predicted": null,
+              "actual": null,
+              "support": "low"
+            },
+            {
+              "from": 0.5,
+              "to": 0.6,
+              "count": 0,
+              "predicted": null,
+              "actual": null,
+              "support": "low"
+            },
+            {
+              "from": 0.6,
+              "to": 0.7,
+              "count": 0,
+              "predicted": null,
+              "actual": null,
+              "support": "low"
+            },
+            {
+              "from": 0.7,
+              "to": 0.8,
+              "count": 0,
+              "predicted": null,
+              "actual": null,
+              "support": "low"
+            },
+            {
+              "from": 0.8,
+              "to": 0.9,
+              "count": 0,
+              "predicted": null,
+              "actual": null,
+              "support": "low"
+            },
+            {
+              "from": 0.9,
+              "to": 1,
+              "count": 0,
+              "predicted": null,
+              "actual": null,
+              "support": "low"
+            }
+          ]
+        },
+        "trainingPositiveRate": 0.06796416434970652,
+        "holdoutPositiveRate": 0.10110294117647059,
+        "trainingCount": 3237,
+        "trainLastSignal": 1788339600000,
+        "calibrationFirstSignal": 1788363000000,
+        "calibrationLastSignal": 1789317900000,
+        "validationFirstSignal": 1789341300000
+      },
+      "commonTargetDefinition": "long TP before stop or expiry; timeout can have positive or negative P&L",
+      "commonFrom": 1789341300000,
+      "commonCount": 1088,
+      "before": {
+        "count": 1088,
+        "brier": 0.10360597361023409,
+        "accuracy": 0.8988970588235294,
+        "precision": null,
+        "recall": 0,
+        "f1": 0,
+        "meanPredicted": 0.10643650585244124,
+        "observedRate": 0.10110294117647059,
+        "ece": 0.07938336583521177,
+        "bins": [
+          {
+            "count": 741,
+            "predicted": 0.04676355746824521,
+            "actual": 0.05668016194331984
+          },
+          {
+            "count": 207,
+            "predicted": 0.11625658012272037,
+            "actual": 0.2753623188405797
+          },
+          {
+            "count": 6,
+            "predicted": 0.23189538944585372,
+            "actual": 0
+          },
+          {
+            "count": 41,
+            "predicted": 0.37916634318375325,
+            "actual": 0
+          },
+          {
+            "count": 93,
+            "predicted": 0.43170771818144327,
+            "actual": 0.11827956989247312
+          },
+          {
+            "count": 0,
+            "predicted": null,
+            "actual": null
+          },
+          {
+            "count": 0,
+            "predicted": null,
+            "actual": null
+          },
+          {
+            "count": 0,
+            "predicted": null,
+            "actual": null
+          },
+          {
+            "count": 0,
+            "predicted": null,
+            "actual": null
+          },
+          {
+            "count": 0,
+            "predicted": null,
+            "actual": null
+          }
+        ]
+      },
+      "after": {
+        "count": 1088,
+        "brier": 0.09551816686336301,
+        "accuracy": 0.8988970588235294,
+        "precision": null,
+        "recall": 0,
+        "f1": 0,
+        "meanPredicted": 0.03300719680559909,
+        "observedRate": 0.10110294117647059,
+        "ece": 0.0680957443708715,
+        "bins": [
+          {
+            "count": 1088,
+            "predicted": 0.03300719680559909,
+            "actual": 0.10110294117647059
+          },
+          {
+            "count": 0,
+            "predicted": null,
+            "actual": null
+          },
+          {
+            "count": 0,
+            "predicted": null,
+            "actual": null
+          },
+          {
+            "count": 0,
+            "predicted": null,
+            "actual": null
+          },
+          {
+            "count": 0,
+            "predicted": null,
+            "actual": null
+          },
+          {
+            "count": 0,
+            "predicted": null,
+            "actual": null
+          },
+          {
+            "count": 0,
+            "predicted": null,
+            "actual": null
+          },
+          {
+            "count": 0,
+            "predicted": null,
+            "actual": null
+          },
+          {
+            "count": 0,
+            "predicted": null,
+            "actual": null
+          },
+          {
+            "count": 0,
+            "predicted": null,
+            "actual": null
+          }
+        ]
+      }
+    }
+  },
+  "beforeSaved": {
+    "from": 1788444900000,
+    "to": 1790342100000,
+    "trades": 0,
+    "netPnl": 0,
+    "maxDrawdown": 0
+  },
+  "after": {
+    "from": 1790106300000,
+    "to": 1790342999999,
+    "metrics": {
+      "count": 0,
+      "netPnl": 0,
+      "winRate": null,
+      "averageWin": null,
+      "averageLoss": null,
+      "profitFactor": null,
+      "expectancy": null,
+      "averageDurationMs": null,
+      "maxConsecutiveWins": 0,
+      "maxConsecutiveLosses": 0,
+      "fees": 0,
+      "maxDrawdown": 0,
+      "sharpe": null,
+      "sortino": null,
+      "calmar": null,
+      "ratioSampleDays": 2,
+      "ratioWarning": "Short sample; annualized ratios unstable",
+      "byAsset": {},
+      "byRegime": {},
+      "byMonth": {},
+      "long": {
+        "count": 0,
+        "netPnl": 0,
+        "winRate": null,
+        "averageWin": null,
+        "averageLoss": null,
+        "profitFactor": null,
+        "expectancy": null,
+        "averageDurationMs": null,
+        "maxConsecutiveWins": 0,
+        "maxConsecutiveLosses": 0,
+        "fees": 0
+      },
+      "short": {
+        "count": 0,
+        "note": "Not implemented: long-only spot"
+      }
+    },
+    "endingBalance": 1000,
+    "lockViolations": 0,
+    "stressNetPnl": 0,
+    "foldErrors": []
+  },
+  "limitations": [
+    "Audited history is not an untouched forward test.",
+    "Common prediction metrics use identical times and repaired spread-aware labels; native metrics differ in labels/splits.",
+    "Requiring a full rolling training window shortens historical evaluation. Trading backtest assumptions intentionally differ because confirmed bugs were corrected."
+  ]
+}

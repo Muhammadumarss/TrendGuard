@@ -33,7 +33,7 @@ No Angular build is required: Express serves a responsive HTML/CSS/JavaScript da
 | Freqtrade trade database | Built-in Node SQLite, stored in `data/paper.sqlite` |
 | Optional live configuration | Paper execution only; no live-order adapter |
 
-The model is **not LightGBM** and should not be presented as having the same performance. Both use boosted trees, but this JavaScript implementation is smaller and has a binary target: **take-profit reached first** versus **stop-loss or time barrier reached first**. Model scores are uncalibrated and are not guaranteed chances of winning. Neither implementation is a validated profitable strategy.
+The model is **not LightGBM** and should not be presented as having the same performance. Both use boosted trees, but this JavaScript implementation is smaller and has a binary target: **take-profit reached first** versus **stop-loss or time barrier reached first**. Model scores use separate chronological calibration, but are not guaranteed chances of winning. Neither implementation is a validated profitable strategy.
 
 ## Controls
 
@@ -54,33 +54,39 @@ Wait for training to finish before backtesting. No trade is forced merely to pop
 - Entry uses the current ask plus 0.05% assumed slippage. Exit uses the current bid minus 0.05%. Fees are 0.1% on each side. Entry drift may not exceed 0.3% from signal close and spread may not exceed 0.2%.
 - Stop: 1% below the simulated entry. Profit target: price needed for 2% net return after the configured fee/slippage costs. Maximum holding time: 24 candles / six hours.
 - Position sizing: 0.25% of equity divided by planned stop plus round-trip fee/slippage allowance, capped at 20% of equity and available cash. Below 10 USDT, no entry. These are simulated limits, not synchronized exchange lot-size filters.
-- **The first fully closed losing trade after fees stops all new entries across both pairs.** Exactly zero does not trigger the lock.
-- **Eligibility returns at 00:05 UTC on the calendar day after the loss closes**, subject to data/model checks and manual pause state. A loss at 00:01 UTC still waits until the next day.
+- **Two fully closed losing trades after fees in the same UTC calendar day stop all new entries across both pairs.** Losses are counted across BTC and ETH together, even with a win between them. Exactly zero does not count as a loss.
+- **Eligibility returns at 00:05 UTC on the calendar day after the second loss closes**, subject to data/model checks and manual pause state. A second loss at 00:01 UTC still waits until the next day. Losses on different UTC days are not combined.
 - The loss record, balance, open position and manual entry state survive restarts. A later win cannot clear an active loss lock. The daily reset is a time check, not a scheduled restart, and does not improve the predictions.
 
 The default account has 1,000 simulated USDT. The app never asks for or accepts exchange API keys. Paper results are not exchange executions.
 
 ## Model validation and backtesting
 
-The model has eight causal features: 1/10/20-bar returns, 20-bar return volatility, distance from EMA50/EMA200, relative volume and candle range. Labels assume entry at the next candle's opening price. Same-candle stop/profit ambiguity is resolved conservatively in favor of the stop. Incomplete label horizons are excluded.
+The eight causal inputs remain 1/10/20-bar returns, 20-bar return volatility, EMA50/EMA200 distances, relative volume and candle range. Each feature timestamp now uses exactly 299 completed candles to initialize its EMAs. Training, replay and paper inference therefore agree exactly. This is an explicit finite warmup convention. Old version-2 models are blocked until retrained.
 
-The first 80% of complete labeled history supplies training candidates. Within that portion, an earlier 80/20 chronological split selects zero to 80 boosting rounds using tuning Brier score, with a full label-horizon purge at the split. The selected number of rounds is refitted on the outer training portion. A full label horizon is also purged before the final 20% chronological holdout, which does not select model complexity. A model may trade only if it has at least one tree and its holdout Brier score beats a constant score based on the training win frequency. Training records the selected tree count, outcome frequencies and rejection reason. The backtester uses the same training procedure. This is a small research gate, not proof of profitability or calibration. Repeated development against this holdout can overfit it; keep separate untouched historical periods for serious evaluation.
+The target is **long take-profit before stop or expiry**, not profitable-close probability. Labels retain stop/target/timeout outcomes and fee-inclusive net returns. Positive timeout returns are still TP-negative. Labels and backtests share the same spread-aware next-open entry and conservative exit routine. At expiry, opening stop is checked first, then time exit, then target; intrabar ambiguity is stop-first.
 
-Automatic retraining occurs after 12 hours; failed network attempts retry no more than hourly. A failed *quality assessment* saves a rejected model and blocks entries for that symbol. A download or training exception may leave a previous model available until it expires; errors are shown in the activity/job panel.
+The earliest 60% of complete examples is used for fitting (with an internal chronological tuning split to select 0–80 stumps). The next 20% calibrates scores using regularized logistic calibration. The final 20% evaluates the frozen model/calibrator. All event horizons are purged at both boundaries. Calibration requires at least 20 examples of each class, otherwise the model remains blocked. There is no random time-series split and final evaluation does not choose model complexity or calibration.
 
-The backtester starts after 65% of the downloaded dataset, retrains on earlier data every seven days, and applies the same holdout gate and daily loss rule. It uses 15-minute OHLC simulation, next-open entries, opening-gap fills, stop-first ambiguity and fee/slippage deductions. It is separate from the active paper account and does not modify that account's trades or lock.
+Readiness requires a nonzero-tree model, positive holdout improvement over the training-frequency baseline with a positive lower moving-block-bootstrap bound, and positive net-payoff evidence for non-overlapping selected examples. At least 30 selected examples and a positive lower payoff bound are required globally and in the current causal regime. Regimes describe bullish/bearish/range conditions and whether horizon-scaled volatility exceeds the configured stop distance. These are research evidence guards, not a proof of calibration or profitability. The sample minimum and bootstrap block choices have limitations; rare entry regimes may remain unsupported indefinitely.
 
-The stress run doubles execution fees and slippage while leaving the prediction model's label assumptions unchanged. This tests sensitivity, not actual order-book execution. Inspect net profit, trade count, drawdown, profit factor and loss-lock violations in the JSON report. Zero trades is not successful strategy validation. Do not optimize a strategy to one short sample and assume it will generalize.
+Scores are shown on a 0–1 scale. Reports separately contain classification accuracy/precision/recall/F1 at the entry threshold, reliability bins, mean prediction, observed TP frequency, ECE, and evidence counts. Accuracy can be high when most targets are negative and no entries qualify. Never interpret it as trading win rate.
 
-Command-line alternatives:
+Automatic retraining remains every 12 hours with hourly failure retries and 24-hour model/data expiry. Downloads retain 30 extra days for evaluation; each model fits only the most recent configured 60 days. Model, data and configuration hashes are retained with append-only decision/model records. A failed quality check replaces the previous model; a training exception leaves the old model usable only until its normal expiry.
 
-```powershell
-npm.cmd run train
-npm.cmd run backtest
-npm.cmd test
-```
+Backtesting now requires a full rolling training window before the evaluation start, exact aligned contiguous histories and the same model-age, trade-decision and global-risk guards. Training completion is approximated by one candle of delay (configurable); actual network and CPU latency is not historical quote data. It retrains every 12 hours on the rolling window. It uses next-open entries, a declared 0.10% full midpoint spread scenario, fees/slippage, opening-gap fills and stop-first intrabar ordering. Known open fills use open timestamps; intrabar fills are explicitly interval-censored and booked at candle end. Full quote/depth/poll-path replay is unavailable.
 
-Avoid running separate training/backtest CLI jobs at the same time as dashboard jobs. Only run one server against an account database.
+Reports include an equity curve, terminal-liquidation updates, sampled drawdown, a separate conservative OHLC low-price drawdown bound, win/loss/payoff/duration/streak metrics, daily-return Sharpe/Sortino/Calmar with short-sample warnings, and asset/month/regime attribution. Empty metrics are null, not artificial zeros. Shorts remain unimplemented. A doubled-cost resimulation changes spread, stake and targets; a separate fixed-trade fee/slippage stress isolates costs on unchanged quantities and exit quotes. Both retain the same frozen model schedule.
+
+Run npm.cmd run train, npm.cmd run backtest, or npm.cmd test. Avoid concurrent CLI/dashboard jobs. The offline audit evaluator is node verification/evaluate-audit.js; it uses a frozen read-only snapshot and writes audit-output artifacts without publishing models or touching the paper account. The archived before source/config under audit-output/before is required for that comparison.
+
+The supplied 2026-09-25 audit data covers only about 63 days. Requiring a complete 60-day training window leaves approximately 2.7 days of replay, whereas the old backtest started prematurely after 65% of history. These native backtests have different assumptions and periods. Common prediction comparisons use identical timestamps and repaired labels. Audited history is not a genuinely unseen forward test.
+
+## Additional global risk budgets
+
+The existing two-loss UTC lock, long-only/no-leverage policy and 20% stake cap remain. New default safety budgets are 0.5% gross realized loss per UTC day, 2% per UTC Monday-based week, a 24-hour cooldown after four consecutive losses across days, and a persistent 10% drawdown halt. Daily/weekly bases are realized equity at the start of the period. Wins do not replenish gross loss budgets. Planned stake is also capped by the remaining daily/weekly loss allowance. These are transparent safety-policy defaults, not parameters optimized on returns or guarantees against gaps.
+
+Equity marks preserve the peak and latch a drawdown halt. Entry pause/resume does not clear it; a halt requires deliberate account review and there is no automatic reset API. Existing-position exit monitoring remains active. Volatility-dependent stop/sizing redesign is deliberately deferred pending out-of-sample evidence; volatility presently affects regime evidence coverage. All financial mutations must satisfy complete schema, position/trade validity and conservation checks before committing. Closed trade history is immutable.
 
 ## Reliability and limitations
 
@@ -88,7 +94,7 @@ The app polls quotes every 15 seconds. A price can touch a barrier and move away
 
 Closing the terminal, sleeping the computer or losing the network stops monitoring. On recovery after more than 90 seconds without a successful position quote, the bot first applies any currently triggered stop/profit/time exit; otherwise it closes at the recovered quote with reason `recovery_quote`. It does **not** invent historical fills during the missing period. This can understate losses or miss gains. Recovery closes still update fees, P&L and the daily loss lock.
 
-SQLite uses transactions, WAL and full synchronization. Corrupt state fails closed instead of silently creating a fresh balance. Preserve the entire `data` folder; stop the app before backup and include SQLite companion files. Deleting the database creates a fresh paper account and erases its risk history. There is intentionally no reset-balance API or dashboard button.
+SQLite uses transactions, WAL and full synchronization. Model/decision/candle-revision archives and normalized closed-trade records are retained. The compatible account JSON still retains full trade history, so large-account scaling remains a limitation. Corrupt state fails closed instead of silently creating a fresh balance. Preserve the entire `data` folder; stop the app before backup and include SQLite companion files. Deleting the database creates a fresh paper account and erases its risk history. There is intentionally no reset-balance API or dashboard button.
 
 The server binds to `127.0.0.1`, rejects unexpected Host headers, uses same-origin/token checks for controls, and does not load external dashboard scripts. This is a single-user local app, not a public multi-user service. Do not expose it through port forwarding or a public reverse proxy without adding proper authentication and deployment hardening.
 
@@ -124,3 +130,31 @@ Changing `config.json` requires a restart. Fee/slippage/stop/target/horizon chan
 - `test/`: risk, restart recovery, model, backtest and HTTP integration tests.
 
 References used for implementation: [Node SQLite](https://nodejs.org/download/release/latest-v24.x/docs/api/sqlite.html), [Express setup](https://expressjs.com/en/starter/installing/), [Binance public market data](https://github.com/binance/binance-spot-api-docs/blob/master/faqs/market_data_only.md), [market endpoints](https://developers.binance.com/docs/binance-spot-api-docs/rest-api/market-data-endpoints).
+
+## Production-readiness follow-up (26 September 2026)
+
+Prediction acceptance now verifies the model/calibrator and evidence fields, rejects inputs outside the observed fitting-feature envelope, and rejects scores outside the selected regime evidence range. Zero historical volume is unsupported rather than replaced by an arbitrary denominator. Payoff evidence excludes candidates failing the entry spread/drift rules. These guards prevent unsupported decisions; they do not prove a profitable edge or production readiness. The changed policy signature requires retraining.
+
+Model publication refuses older training/data snapshots and derives an immutable content hash. An individual symbol training failure no longer aborts the other symbol. Backtest output is atomically replaced and the dashboard refuses results from older source/configuration. Public-data requests honor rate-limit cooldowns, including pending concurrent retries; IP-wide budgeting across processes remains a deployment requirement.
+
+Run node verification/production-review.js for the latest frozen 90-day local snapshot evaluation without changing the paper account. The detailed production blockers are in audit-output/PRODUCTION-READINESS-REVIEW.md. Real execution, order reconciliation, protective orders, quote-path validation, independent forward profitability evidence and operational soak testing are still outstanding.
+
+Insufficient training outcome coverage is now saved as an explicit model rejection rather than retaining an old accepted model. Network/infrastructure exceptions still allow the previous model only until its existing expiry. Rejected coverage models wait for the normal retraining cadence.
+
+## Strategy and counter-trend review (28 September 2026)
+
+The current strategy remains spot-style, long-only paper trading. Its bullish breakout filter has been preserved. A separate downside-sweep/recovery hypothesis is evaluated only by the offline research scripts; it has no route to paper or live entries. Existing evidence is selected from bullish breakout setups and cannot justify counter-trend entries.
+
+Automatic and manual exits now independently reject stale, future-dated or malformed quotes. A fresh wide spread still allows a protective exit. Failed quotes do not advance the recovery timestamp or mutate the account. New strategy entries record `context.setup` for attribution.
+
+The [review report](audit-output/strategy-review/REPORT.md) traces the complete strategy and describes its behavior across regimes. The identical-period walk-forward comparison used 60-day rolling training windows and 32.89 evaluation days. Both original and revised strategies made zero approved trades; none of 132 models passed validation. A separate **rules-only diagnostic without model gates** lost 1.50% on 36 trend-following trades and 0.98% on seven counter-trend trades after costs. This does not support enabling counter-trend trading or removing existing filters.
+
+Run `node verification/strategy-review.js` to reproduce the comparison from the saved source/data snapshot, or add `--reuse-models` to verify and reuse its frozen model schedule. The scripts write only to `audit-output/strategy-review`; they never publish models, start the agent or change the paper account. `npm.cmd test` includes exit-freshness, causal counter-trend research and cross-asset risk regressions. Longer untouched forward evaluation and setup-specific predictive/payoff evidence are required before adding an executable counter-trend policy.
+
+## Strategy development and validation (29 September 2026)
+
+Model rejection now includes a diagnostic breakdown: predictive quality, calibration, independent evidence count, payoff uncertainty and regime support. New training reports also count how many breakout candidates survive score, feature-domain and execution checks. The dashboard displays these reasons for new and existing model artifacts. These additions do not change prediction values, entry thresholds or risk limits.
+
+Five alternatives and the original rules control were implemented in an isolated [research workflow](research/README.md): hourly breakouts, hourly pullback recovery, daily momentum and confirmed counter-trend rebounds, with fixed or completed-close trailing exits. Four years of checksum-verified BTC/ETH history support a frozen development/2024-selection/2025-test split. None of the alternatives passed selection; all lost money after costs in 2025. New entry/exit policies remain research-only. The [full results](audit-output/strategy-improvement/REPORT.md) explain the negative findings and why a smaller loss or fewer trades does not validate an edge.
+
+Run `npm.cmd run research:strategies` after downloading the separate research data as described in `research/README.md`. This does not publish models or touch the paper account. The full-year baseline comparison is a separate, slower command. The optional archive downloader uses Python's standard library; running the bot still requires only Node. Existing settings, published models and entry-enable state are preserved. A running server picks up diagnostic changes at its next normal restart.

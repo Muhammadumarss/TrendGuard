@@ -1,0 +1,88 @@
+
+> trendguard-node@2.0.0 test
+> node --test
+
+✔ H1 exact rolling/prefix feature parity with a non-null warmup boundary (93.4989ms)
+✔ H3 delayed second symbol cannot fill first stale quote or expired signal (60.624ms)
+✔ H3 newly rejected model replaces an earlier accepted snapshot before entry (23.3117ms)
+✔ H3 one expired market also blocks entry on the other fresh market (12.5466ms)
+✔ H4 missing fee/expiry and negative qty roll back before corrupting state (17.9693ms)
+✔ H4 post-mutation NaN, cash conservation and duplicate history cannot commit (10.5493ms)
+✔ M6 raw malformed terminal timestamps are rejected before filtering (2.0199ms)
+✔ M4 one-asset and both-asset gaps are rejected by backtest (45.7819ms)
+✔ Labels and execution share spread, stop-first, timeout and exact net return (3.0423ms)
+✔ A profitable timeout remains TP-negative and carries its actual payoff (1.1503ms)
+✔ Risk money budgets, weekly periods, drawdown latch and cross-day streaks (1.6153ms)
+✔ High confidence cannot bypass exposure, risk, evidence or invalid score (11.8757ms)
+✔ Financial conservation and exact net target across prices and fees (1.6976ms)
+✔ Calibration never pretends insufficient classes are supported (5.374ms)
+✔ Calibration on independent synthetic outcomes improves an overconfident score (34.2598ms)
+✔ Regime description is finite for very low/high volatility, without future inputs (2.3324ms)
+✔ Lifecycle uses exact rolling training history and expires stale models (13.208ms)
+✔ Backtest cadence, latency, bounded history and failed-training fallback (1467.4712ms)
+✔ Final holdout cannot alter calibration, selection, or fitted trees (1658.9434ms)
+✔ Terminal liquidation and undefined ratios are represented honestly (1.0302ms)
+✔ Backtest final-entry liquidation updates balance/equity and handles ambiguous first candle (674.4847ms)
+✔ Remaining monetary budget reduces stake before a permitted entry (0.9548ms)
+✔ Entry boundaries, unsupported regimes, and same-candle restart suppression (21.0512ms)
+✔ Raw corrupt persistent state is rejected on read and trade archive is immutable (10.7399ms)
+✔ Model/decision/trade provenance survives restart and lease excludes second server (389.7532ms)
+✔ Loss reset is next calendar day at 00:05 UTC, including year boundary (6.2229ms)
+✔ Two daily losses lock entries despite intervening wins; exact reset allows eligibility (1.6768ms)
+✔ Losses on different UTC days do not combine; break-even trades do not count (0.6787ms)
+✔ Unknown profit and clock rollback block entries (0.4847ms)
+✔ Sizing respects fees, available cash and exchange minimum (0.9032ms)
+✔ First fee-inclusive loss allows another pair; second loss blocks both pairs (3.2804ms)
+✔ Position and loss lock persist across database restart (324.976ms)
+✔ Transaction failure leaves cash and trades unchanged (3.2594ms)
+✔ Existing missing account state cannot silently reset risk history (201.1916ms)
+✔ Triple barrier assumes stop first for ambiguous candles (1.737ms)
+✔ Next open entry, positive barrier, and censored horizon (2.4774ms)
+✔ Changing future candles does not change historical feature vector (28.3261ms)
+✔ Actual JavaScript boosted trees learn and survive JSON serialization (398.2439ms)
+✔ Insufficient class coverage refuses training (18.5217ms)
+✔ Stale, failed-validation and mismatched models cannot trade (2.3835ms)
+✔ Malformed/gapped market data and live mode are rejected (8.4919ms)
+✔ Engine opens only one paper position even with simultaneous ticks (26.0723ms)
+✔ Exits continue while entries are paused; second loss blocks both pairs (10.312ms)
+✔ Stale data and network failure produce no entry (9.8814ms)
+✔ A paused position after downtime is reconciled at a current paper quote (4.6795ms)
+✔ Express serves dashboard; mutation requires token and same origin (676.4564ms)
+✔ Training uses chronological holdout with a full event-horizon purge (1855.5505ms)
+✔ Final holdout changes cannot select trees or change fitted parameters (2002.0314ms)
+✔ Tuning allows no trees when features have no predictive information (22.3105ms)
+✔ Walk-forward backtest executes and preserves daily loss rule (478.8571ms)
+Downloading 90 days of BTCUSDT candles; training window 60 days…
+BTCUSDT: training failed — BTC offline
+Downloading 90 days of ETHUSDT candles; training window 60 days…
+Training ETHUSDT and checking a later holdout period…
+ETHUSDT: validation passed — undefined. Brier 0.0500 vs baseline 0.1000; 1 trees (200 holdout examples)
+✔ Malformed calibration cannot saturate into a high-confidence trade (17.9427ms)
+✔ A passed flag cannot substitute for supported validation evidence (1.3922ms)
+✔ Training rejects invalid feature dimensions, labels and complexity inputs (7.3674ms)
+✔ Unsupported feature envelope and score ranges fail closed (4.6023ms)
+✔ Invalid candle metadata cannot bypass comparisons with NaN (2.3035ms)
+✔ Zero historical volume produces an unsupported feature rather than invented ratio (2.1293ms)
+✔ Payoff evidence excludes non-executable entries and keeps supported ones (43.3973ms)
+✔ Label execution eligibility agrees with drift/spread rules (2.6096ms)
+✔ Model publication refuses older jobs and derives immutable content identity (14.6951ms)
+✔ One asset training failure does not prevent the other asset refreshing (289.3266ms)
+✔ Changed execution acceptance invalidates model identity and stale reports (1.6165ms)
+✔ Market-data retries honor rate-limit cooldown across endpoints (57.3015ms)
+✔ Transient market failures retry only within the bounded attempt budget (1.6988ms)
+✔ A concurrent rate limit cancels a pending transient retry (59.6173ms)
+✔ Insufficient outcome coverage publishes a rejected model instead of retaining an old accepted one (462.2108ms)
+✔ Automatic exits reject stale/future/malformed quotes without refreshing recovery time (25.9241ms)
+✔ Manual close rejects stale quotes; wide fresh spreads never block a protective exit (9.6643ms)
+✔ Counter-trend hypothesis requires a downside sweep, recovery confirmation and volume (1.4862ms)
+✔ A bullish model acceptance cannot authorize counter-trend trades, even at a high score (11.4689ms)
+✔ Counter-trend research features are causal and preserve the model feature vector (18.9693ms)
+✔ Both research setups preserve shared sizing, stop execution and the cross-asset loss lock (74.1351ms)
+ℹ tests 71
+ℹ suites 0
+ℹ pass 71
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 10251.6503

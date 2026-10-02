@@ -1,0 +1,176 @@
+[
+  {
+    "symbol": "BTCUSDT",
+    "bars": 5760,
+    "metrics": {
+      "count": 1107,
+      "brier": 0.0490718092539982,
+      "baselineBrier": 0.04560944537176947,
+      "logLoss": 0.18315834164214664
+    },
+    "stored": {
+      "count": 1107,
+      "brier": 0.0490718092539982,
+      "baselineBrier": 0.04560944537176947,
+      "logLoss": 0.18315834164214664,
+      "passed": false,
+      "reason": "Holdout score does not beat the baseline",
+      "trainingPositiveRate": 0.04292527821939587,
+      "holdoutPositiveRate": 0.04787714543812105,
+      "trainingCount": 4403,
+      "trainLastSignal": 1789300800000,
+      "validationFirstSignal": 1789324200000
+    },
+    "filtered": 42,
+    "threshold": 0,
+    "bins": [
+      {
+        "range": "0-0.1",
+        "count": 925,
+        "meanScore": 0.03709285208809696,
+        "observedTargetRate": 0.03567567567567568
+      },
+      {
+        "range": "0.1-0.2",
+        "count": 79,
+        "meanScore": 0.12388070515956259,
+        "observedTargetRate": 0.21518987341772153
+      },
+      {
+        "range": "0.2-0.3",
+        "count": 66,
+        "meanScore": 0.25399483976998233,
+        "observedTargetRate": 0.045454545454545456
+      },
+      {
+        "range": "0.3-0.4",
+        "count": 37,
+        "meanScore": 0.3298915248968674,
+        "observedTargetRate": 0
+      },
+      {
+        "range": "0.4-0.5",
+        "count": 0,
+        "meanScore": null,
+        "observedTargetRate": null
+      },
+      {
+        "range": "0.5-0.6",
+        "count": 0,
+        "meanScore": null,
+        "observedTargetRate": null
+      },
+      {
+        "range": "0.6-0.7",
+        "count": 0,
+        "meanScore": null,
+        "observedTargetRate": null
+      },
+      {
+        "range": "0.7-0.8",
+        "count": 0,
+        "meanScore": null,
+        "observedTargetRate": null
+      },
+      {
+        "range": "0.8-0.9",
+        "count": 0,
+        "meanScore": null,
+        "observedTargetRate": null
+      },
+      {
+        "range": "0.9-1",
+        "count": 0,
+        "meanScore": null,
+        "observedTargetRate": null
+      }
+    ]
+  },
+  {
+    "symbol": "ETHUSDT",
+    "bars": 5760,
+    "metrics": {
+      "count": 1107,
+      "brier": 0.1139614382445804,
+      "baselineBrier": 0.10413095679434446,
+      "logLoss": 0.40070705458691197
+    },
+    "stored": {
+      "count": 1107,
+      "brier": 0.1139614382445804,
+      "baselineBrier": 0.10413095679434446,
+      "logLoss": 0.40070705458691197,
+      "passed": false,
+      "reason": "Holdout score does not beat the baseline",
+      "trainingPositiveRate": 0.06404724051782876,
+      "holdoutPositiveRate": 0.11472448057813911,
+      "trainingCount": 4403,
+      "trainLastSignal": 1789300800000,
+      "validationFirstSignal": 1789324200000
+    },
+    "filtered": 33,
+    "threshold": 0,
+    "bins": [
+      {
+        "range": "0-0.1",
+        "count": 760,
+        "meanScore": 0.046229402674488475,
+        "observedTargetRate": 0.06578947368421052
+      },
+      {
+        "range": "0.1-0.2",
+        "count": 207,
+        "meanScore": 0.11625658012272037,
+        "observedTargetRate": 0.3140096618357488
+      },
+      {
+        "range": "0.2-0.3",
+        "count": 6,
+        "meanScore": 0.23189538944585372,
+        "observedTargetRate": 0
+      },
+      {
+        "range": "0.3-0.4",
+        "count": 41,
+        "meanScore": 0.37916634318375325,
+        "observedTargetRate": 0
+      },
+      {
+        "range": "0.4-0.5",
+        "count": 93,
+        "meanScore": 0.43170771818144327,
+        "observedTargetRate": 0.12903225806451613
+      },
+      {
+        "range": "0.5-0.6",
+        "count": 0,
+        "meanScore": null,
+        "observedTargetRate": null
+      },
+      {
+        "range": "0.6-0.7",
+        "count": 0,
+        "meanScore": null,
+        "observedTargetRate": null
+      },
+      {
+        "range": "0.7-0.8",
+        "count": 0,
+        "meanScore": null,
+        "observedTargetRate": null
+      },
+      {
+        "range": "0.8-0.9",
+        "count": 0,
+        "meanScore": null,
+        "observedTargetRate": null
+      },
+      {
+        "range": "0.9-1",
+        "count": 0,
+        "meanScore": null,
+        "observedTargetRate": null
+      }
+    ]
+  }
+]

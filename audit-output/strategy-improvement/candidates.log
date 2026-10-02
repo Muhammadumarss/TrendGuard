@@ -1,0 +1,1263 @@
+Preparing causal hourly, four-hour and daily signals
+development: baseline_rules
+development: hourly_breakout_fixed
+development: hourly_breakout_trailing
+development: hourly_pullback_trailing
+development: daily_momentum_trailing
+development: hourly_rebound_fixed
+selection: baseline_rules
+selection: hourly_breakout_fixed
+selection: hourly_breakout_trailing
+selection: hourly_pullback_trailing
+selection: daily_momentum_trailing
+selection: hourly_rebound_fixed
+Locked test: baseline_rules
+Locked test: hourly_breakout_fixed
+Locked test: hourly_breakout_trailing
+Locked test: hourly_pullback_trailing
+Locked test: daily_momentum_trailing
+Locked test: hourly_rebound_fixed
+{
+  "selection": {
+    "trend_following": null,
+    "counter_trend": null
+  },
+  "test": {
+    "baseline_rules": {
+      "count": 155,
+      "netPnl": -101.21105923069427,
+      "netReturn": -0.10121105923069562,
+      "maxDrawdown": 0.10128944368393644,
+      "expectancy": -0.6529745756818985,
+      "profitFactor": 0.4898235318979449,
+      "riskViolations": 0,
+      "candidates": 1585,
+      "drawdownHalt": true,
+      "byAsset": {
+        "BTCUSDT": {
+          "count": 112,
+          "netPnl": -88.68292810150214,
+          "winRate": 0.26785714285714285,
+          "averageWin": 1.6335473643892187,
+          "averageLoss": -1.6791384028436427,
+          "profitFactor": 0.3559202020765425,
+          "expectancy": -0.7918118580491262,
+          "averageDurationMs": 14801785.214285715,
+          "maxConsecutiveWins": 3,
+          "maxConsecutiveLosses": 12,
+          "fees": 40.69661031421043
+        },
+        "ETHUSDT": {
+          "count": 43,
+          "netPnl": -12.528131129192133,
+          "winRate": 0.32558139534883723,
+          "averageWin": 3.4404952138680818,
+          "averageLoss": -2.0929332456325955,
+          "profitFactor": 0.7935889629553351,
+          "expectancy": -0.2913518867253984,
+          "averageDurationMs": 10025580.558139535,
+          "maxConsecutiveWins": 2,
+          "maxConsecutiveLosses": 8,
+          "fees": 15.676661323191864
+        }
+      },
+      "byRegime": {
+        "bullish:high_volatility": {
+          "count": 89,
+          "netPnl": -44.655681140855734,
+          "winRate": 0.3258426966292135,
+          "averageWin": 2.4319389269302576,
+          "averageLoss": -1.9196985003638867,
+          "profitFactor": 0.6123029985143408,
+          "expectancy": -0.5017492263017498,
+          "averageDurationMs": 11639325.17977528,
+          "maxConsecutiveWins": 3,
+          "maxConsecutiveLosses": 12,
+          "fees": 32.51488190949256
+        },
+        "bullish:low_volatility": {
+          "count": 66,
+          "netPnl": -56.55537808983854,
+          "winRate": 0.22727272727272727,
+          "averageWin": 1.7764750029901488,
+          "averageLoss": -1.631421630091976,
+          "profitFactor": 0.3202683097372088,
+          "expectancy": -0.8568996680278567,
+          "averageDurationMs": 15954544.954545455,
+          "maxConsecutiveWins": 3,
+          "maxConsecutiveLosses": 11,
+          "fees": 23.858389727909767
+        }
+      },
+      "byMonth": {
+        "2025-01": {
+          "count": 33,
+          "netPnl": -23.979174839552257,
+          "winRate": 0.2727272727272727,
+          "averageWin": 1.8757403532751797,
+          "averageLoss": -1.7025349174595366,
+          "profitFactor": 0.41315019460968555,
+          "expectancy": -0.7266416618046139,
+          "averageDurationMs": 16090908.575757576,
+          "maxConsecutiveWins": 2,
+          "maxConsecutiveLosses": 6,
+          "fees": 12.554710689309228
+        },
+        "2025-02": {
+          "count": 13,
+          "netPnl": -23.382324431417686,
+          "winRate": 0,
+          "averageWin": null,
+          "averageLoss": -1.7986403408782836,
+          "profitFactor": 0,
+          "expectancy": -1.7986403408782836,
+          "averageDurationMs": 9553845.538461538,
+          "maxConsecutiveWins": 0,
+          "maxConsecutiveLosses": 13,
+          "fees": 4.804390548213089
+        },
+        "2025-03": {
+          "count": 32,
+          "netPnl": -8.783821381720713,
+          "winRate": 0.375,
+          "averageWin": 2.677135767610293,
+          "averageLoss": -2.045472529652211,
+          "profitFactor": 0.7852862540467798,
+          "expectancy": -0.2744944181787723,
+          "averageDurationMs": 10490624.28125,
+          "maxConsecutiveWins": 4,
+          "maxConsecutiveLosses": 4,
+          "fees": 11.666622570273182
+        },
+        "2025-04": {
+          "count": 34,
+          "netPnl": -22.817808023222938,
+          "winRate": 0.35294117647058826,
+          "averageWin": 1.5867891182322704,
+          "averageLoss": -1.902694429182281,
+          "profitFactor": 0.4548924535347361,
+          "expectancy": -0.6711120006830276,
+          "averageDurationMs": 14029411.205882354,
+          "maxConsecutiveWins": 4,
+          "maxConsecutiveLosses": 7,
+          "fees": 12.211813268084486
+        },
+        "2025-05": {
+          "count": 35,
+          "netPnl": -11.076890899485562,
+          "winRate": 0.3142857142857143,
+          "averageWin": 2.647690192385666,
+          "averageLoss": -1.6750617923219953,
+          "profitFactor": 0.7244656149836067,
+          "expectancy": -0.3164825971281589,
+          "averageDurationMs": 13577142.257142857,
+          "maxConsecutiveWins": 3,
+          "maxConsecutiveLosses": 5,
+          "fees": 12.361489319758249
+        },
+        "2025-06": {
+          "count": 8,
+          "netPnl": -11.171039655295118,
+          "winRate": 0,
+          "averageWin": null,
+          "averageLoss": -1.3963799569118898,
+          "profitFactor": 0,
+          "expectancy": -1.3963799569118898,
+          "averageDurationMs": 18224999.5,
+          "maxConsecutiveWins": 0,
+          "maxConsecutiveLosses": 8,
+          "fees": 2.7742452417640866
+        }
+      },
+      "fixedTradeStress": {
+        "count": 155,
+        "netPnl": -185.77097917516784,
+        "method": "Fixed quantities and quote exit times; doubled fees/slippage only; not a resimulated strategy"
+      },
+      "gate": {
+        "passed": false,
+        "failures": [
+          "nonpositive_net_return",
+          "uncertain_or_negative_payoff",
+          "drawdown_limit",
+          "BTCUSDT_insufficient_positive_evidence",
+          "ETHUSDT_insufficient_positive_evidence",
+          "cost_stress_failed"
+        ],
+        "interval": {
+          "mean": -0.0035630386356477104,
+          "lower": -0.005230350631568968,
+          "upper": -0.0020150439878904147,
+          "blocks": 11,
+          "method": "95% moving-block percentile bootstrap; dependence may exceed block length"
+        }
+      }
+    },
+    "hourly_breakout_fixed": {
+      "count": 105,
+      "netPnl": -81.2879325898225,
+      "netReturn": -0.08128793258982225,
+      "maxDrawdown": 0.08128793258982225,
+      "expectancy": -0.7741707865697381,
+      "profitFactor": 0.4363152562602975,
+      "riskViolations": 0,
+      "candidates": 240,
+      "drawdownHalt": false,
+      "byAsset": {
+        "BTCUSDT": {
+          "count": 53,
+          "netPnl": -40.277640585179654,
+          "winRate": 0.3018867924528302,
+          "averageWin": 1.6078316686393208,
+          "averageLoss": -1.7838634400921294,
+          "profitFactor": 0.38975996916876654,
+          "expectancy": -0.7599554827392387,
+          "averageDurationMs": 15622641,
+          "maxConsecutiveWins": 3,
+          "maxConsecutiveLosses": 10,
+          "fees": 19.69757130511997
+        },
+        "ETHUSDT": {
+          "count": 52,
+          "netPnl": -41.01029200464285,
+          "winRate": 0.2692307692307692,
+          "averageWin": 2.656779147999308,
+          "averageLoss": -2.0580315809640304,
+          "profitFactor": 0.4756065841599162,
+          "expectancy": -0.7886594616277471,
+          "averageDurationMs": 9623076.134615384,
+          "maxConsecutiveWins": 3,
+          "maxConsecutiveLosses": 6,
+          "fees": 19.09655627144588
+        }
+      },
+      "byRegime": {
+        "bullish:high_volatility": {
+          "count": 62,
+          "netPnl": -57.14437864196091,
+          "winRate": 0.24193548387096775,
+          "averageWin": 2.634900580148254,
+          "averageLoss": -2.0567635605145687,
+          "profitFactor": 0.4088587201818209,
+          "expectancy": -0.9216835264832405,
+          "averageDurationMs": 10219354.064516129,
+          "maxConsecutiveWins": 5,
+          "maxConsecutiveLosses": 8,
+          "fees": 22.972600136018155
+        },
+        "range:high_volatility": {
+          "count": 10,
+          "netPnl": -12.952598736166266,
+          "winRate": 0.2,
+          "averageWin": 0.4614466660059833,
+          "averageLoss": -1.734436508522279,
+          "profitFactor": 0.06651247591633244,
+          "expectancy": -1.2952598736166265,
+          "averageDurationMs": 15029999.4,
+          "maxConsecutiveWins": 1,
+          "maxConsecutiveLosses": 4,
+          "fees": 3.6449579300056287
+        },
+        "bullish:low_volatility": {
+          "count": 28,
+          "netPnl": -7.09276839155703,
+          "winRate": 0.42857142857142855,
+          "averageWin": 1.8084153703406163,
+          "averageLoss": -1.7996095522277766,
+          "profitFactor": 0.7536698869354489,
+          "expectancy": -0.2533131568413225,
+          "averageDurationMs": 15878570.964285715,
+          "maxConsecutiveWins": 3,
+          "maxConsecutiveLosses": 4,
+          "fees": 10.327309965885465
+        },
+        "range:low_volatility": {
+          "count": 5,
+          "netPnl": -4.098186820138295,
+          "winRate": 0.2,
+          "averageWin": 0.7728282918962748,
+          "averageLoss": -1.2177537780086425,
+          "profitFactor": 0.15865856995329108,
+          "expectancy": -0.8196373640276591,
+          "averageDurationMs": 19979999.8,
+          "maxConsecutiveWins": 1,
+          "maxConsecutiveLosses": 4,
+          "fees": 1.8492595446565956
+        }
+      },
+      "byMonth": {
+        "2025-01": {
+          "count": 6,
+          "netPnl": -12.317038837856273,
+          "winRate": 0,
+          "averageWin": null,
+          "averageLoss": -2.052839806309379,
+          "profitFactor": 0,
+          "expectancy": -2.052839806309379,
+          "averageDurationMs": 10649999.166666666,
+          "maxConsecutiveWins": 0,
+          "maxConsecutiveLosses": 6,
+          "fees": 2.2838522290090637
+        },
+        "2025-04": {
+          "count": 11,
+          "netPnl": -5.653012037527418,
+          "winRate": 0.36363636363636365,
+          "averageWin": 1.542855372004425,
+          "averageLoss": -1.6892047893635882,
+          "profitFactor": 0.5219211114583344,
+          "expectancy": -0.5139101852297653,
+          "averageDurationMs": 16363635.909090908,
+          "maxConsecutiveWins": 1,
+          "maxConsecutiveLosses": 3,
+          "fees": 4.1690049156245435
+        },
+        "2025-05": {
+          "count": 26,
+          "netPnl": -17.036964717977753,
+          "winRate": 0.3076923076923077,
+          "averageWin": 2.5691155683148565,
+          "averageLoss": -2.0883271813609223,
+          "profitFactor": 0.5467673608161158,
+          "expectancy": -0.6552678737683751,
+          "averageDurationMs": 11076922.384615384,
+          "maxConsecutiveWins": 5,
+          "maxConsecutiveLosses": 6,
+          "fees": 9.804416884454382
+        },
+        "2025-06": {
+          "count": 8,
+          "netPnl": -8.644362847086853,
+          "winRate": 0.125,
+          "averageWin": 3.6965564724881403,
+          "averageLoss": -1.762988474224999,
+          "profitFactor": 0.2995365561319823,
+          "expectancy": -1.0805453558858567,
+          "averageDurationMs": 11474999.25,
+          "maxConsecutiveWins": 1,
+          "maxConsecutiveLosses": 4,
+          "fees": 2.953488589830718
+        },
+        "2025-07": {
+          "count": 25,
+          "netPnl": -11.947992332426395,
+          "winRate": 0.32,
+          "averageWin": 2.390559273858784,
+          "averageLoss": -1.827792148429216,
+          "profitFactor": 0.6154797584714314,
+          "expectancy": -0.4779196932970558,
+          "averageDurationMs": 13283999.4,
+          "maxConsecutiveWins": 3,
+          "maxConsecutiveLosses": 7,
+          "fees": 9.177616797309728
+        },
+        "2025-08": {
+          "count": 18,
+          "netPnl": -14.113512016108245,
+          "winRate": 0.2777777777777778,
+          "averageWin": 2.2395811798762963,
+          "averageLoss": -1.9470321473453636,
+          "profitFactor": 0.44240531829426843,
+          "expectancy": -0.7840840008949025,
+          "averageDurationMs": 11749999.222222222,
+          "maxConsecutiveWins": 1,
+          "maxConsecutiveLosses": 4,
+          "fees": 6.499309106665414
+        },
+        "2025-09": {
+          "count": 5,
+          "netPnl": -5.740996222202824,
+          "winRate": 0.4,
+          "averageWin": 0.36092792599637846,
+          "averageLoss": -2.15428402473186,
+          "profitFactor": 0.11169307972790093,
+          "expectancy": -1.1481992444405649,
+          "averageDurationMs": 15479999.6,
+          "maxConsecutiveWins": 1,
+          "maxConsecutiveLosses": 2,
+          "fees": 1.7786537709878156
+        },
+        "2025-10": {
+          "count": 6,
+          "netPnl": -5.834053578636741,
+          "winRate": 0.3333333333333333,
+          "averageWin": 0.7275381604751203,
+          "averageLoss": -1.8222824748967454,
+          "profitFactor": 0.1996227726758839,
+          "expectancy": -0.9723422631061235,
+          "averageDurationMs": 13949999.5,
+          "maxConsecutiveWins": 2,
+          "maxConsecutiveLosses": 3,
+          "fees": 2.1277852826841834
+        }
+      },
+      "fixedTradeStress": {
+        "count": 105,
+        "netPnl": -139.47914127723382,
+        "method": "Fixed quantities and quote exit times; doubled fees/slippage only; not a resimulated strategy"
+      },
+      "gate": {
+        "passed": false,
+        "failures": [
+          "nonpositive_net_return",
+          "uncertain_or_negative_payoff",
+          "BTCUSDT_insufficient_positive_evidence",
+          "ETHUSDT_insufficient_positive_evidence",
+          "cost_stress_failed"
+        ],
+        "interval": {
+          "mean": -0.004180870125307021,
+          "lower": -0.00602691216352328,
+          "upper": -0.001775145612349789,
+          "blocks": 9,
+          "method": "95% moving-block percentile bootstrap; dependence may exceed block length"
+        }
+      }
+    },
+    "hourly_breakout_trailing": {
+      "count": 95,
+      "netPnl": -72.70962621972095,
+      "netReturn": -0.07270962621972099,
+      "maxDrawdown": 0.07270962621972099,
+      "expectancy": -0.7653644865233784,
+      "profitFactor": 0.4951941848887708,
+      "riskViolations": 0,
+      "candidates": 240,
+      "drawdownHalt": false,
+      "byAsset": {
+        "BTCUSDT": {
+          "count": 48,
+          "netPnl": -44.55305721845343,
+          "winRate": 0.2916666666666667,
+          "averageWin": 1.8392005413817185,
+          "averageLoss": -2.0677019058175734,
+          "profitFactor": 0.3662606625500317,
+          "expectancy": -0.9281886920511132,
+          "averageDurationMs": 39693749.208333336,
+          "maxConsecutiveWins": 4,
+          "maxConsecutiveLosses": 7,
+          "fees": 17.85475235006234
+        },
+        "ETHUSDT": {
+          "count": 47,
+          "netPnl": -28.156569001267513,
+          "winRate": 0.3191489361702128,
+          "averageWin": 3.0384272661544136,
+          "averageLoss": -2.304155562299491,
+          "profitFactor": 0.6181278748334603,
+          "expectancy": -0.5990759361971811,
+          "averageDurationMs": 13289360.70212766,
+          "maxConsecutiveWins": 2,
+          "maxConsecutiveLosses": 5,
+          "fees": 17.341359638056982
+        }
+      },
+      "byRegime": {
+        "bullish:high_volatility": {
+          "count": 55,
+          "netPnl": -24.447740811411535,
+          "winRate": 0.34545454545454546,
+          "averageWin": 3.1181397975510543,
+          "averageLoss": -2.3247888045800433,
+          "profitFactor": 0.707885761454889,
+          "expectancy": -0.4445043783893006,
+          "averageDurationMs": 17525453.563636363,
+          "maxConsecutiveWins": 2,
+          "maxConsecutiveLosses": 7,
+          "fees": 20.44234640438089
+        },
+        "range:high_volatility": {
+          "count": 9,
+          "netPnl": -19.09228578839469,
+          "winRate": 0,
+          "averageWin": null,
+          "averageLoss": -2.12136508759941,
+          "profitFactor": 0,
+          "expectancy": -2.12136508759941,
+          "averageDurationMs": 22199999.111111112,
+          "maxConsecutiveWins": 0,
+          "maxConsecutiveLosses": 9,
+          "fees": 3.301849223963351
+        },
+        "bullish:low_volatility": {
+          "count": 26,
+          "netPnl": -23.468072670261733,
+          "winRate": 0.34615384615384615,
+          "averageWin": 1.2631664471385529,
+          "averageLoss": -2.0492100408534535,
+          "profitFactor": 0.3263380349328986,
+          "expectancy": -0.9026181796254513,
+          "averageDurationMs": 41780768.461538464,
+          "maxConsecutiveWins": 3,
+          "maxConsecutiveLosses": 6,
+          "fees": 9.60728165866032
+        },
+        "range:low_volatility": {
+          "count": 5,
+          "netPnl": -5.701526949652987,
+          "winRate": 0.2,
+          "averageWin": 0.7120623939432562,
+          "averageLoss": -1.6033973358990607,
+          "profitFactor": 0.1110240078988261,
+          "expectancy": -1.1403053899305973,
+          "averageDurationMs": 55979999.4,
+          "maxConsecutiveWins": 1,
+          "maxConsecutiveLosses": 2,
+          "fees": 1.844634701114764
+        }
+      },
+      "byMonth": {
+        "2025-01": {
+          "count": 6,
+          "netPnl": -14.319011970354325,
+          "winRate": 0,
+          "averageWin": null,
+          "averageLoss": -2.3865019950590542,
+          "profitFactor": 0,
+          "expectancy": -2.3865019950590542,
+          "averageDurationMs": 20699999,
+          "maxConsecutiveWins": 0,
+          "maxConsecutiveLosses": 6,
+          "fees": 2.281848251899456
+        },
+        "2025-04": {
+          "count": 9,
+          "netPnl": -7.458091382892405,
+          "winRate": 0.4444444444444444,
+          "averageWin": 0.9324235533794081,
+          "averageLoss": -2.2375571192820076,
+          "profitFactor": 0.3333719779823476,
+          "expectancy": -0.8286768203213783,
+          "averageDurationMs": 42399999.222222224,
+          "maxConsecutiveWins": 4,
+          "maxConsecutiveLosses": 4,
+          "fees": 3.403407749143259
+        },
+        "2025-05": {
+          "count": 23,
+          "netPnl": -15.941490284330996,
+          "winRate": 0.2608695652173913,
+          "averageWin": 3.7106225901930734,
+          "averageLoss": -2.2473662250287902,
+          "profitFactor": 0.582740582213879,
+          "expectancy": -0.6931082732317825,
+          "averageDurationMs": 22265216.47826087,
+          "maxConsecutiveWins": 2,
+          "maxConsecutiveLosses": 7,
+          "fees": 8.626665057729408
+        },
+        "2025-06": {
+          "count": 8,
+          "netPnl": -6.500414786418588,
+          "winRate": 0.375,
+          "averageWin": 1.0031122316765486,
+          "averageLoss": -1.9019502962896468,
+          "profitFactor": 0.3164474593158722,
+          "expectancy": -0.8125518483023235,
+          "averageDurationMs": 24637499.125,
+          "maxConsecutiveWins": 1,
+          "maxConsecutiveLosses": 3,
+          "fees": 2.9477050029998098
+        },
+        "2025-07": {
+          "count": 26,
+          "netPnl": -9.102806049763643,
+          "winRate": 0.4230769230769231,
+          "averageWin": 2.0501980440895977,
+          "averageLoss": -2.1103323023166145,
+          "profitFactor": 0.7124368821039527,
+          "expectancy": -0.35010792499090937,
+          "averageDurationMs": 28280768.346153848,
+          "maxConsecutiveWins": 4,
+          "maxConsecutiveLosses": 5,
+          "fees": 9.57318452854778
+        },
+        "2025-08": {
+          "count": 17,
+          "netPnl": -7.637605559402459,
+          "winRate": 0.29411764705882354,
+          "averageWin": 3.954054327393794,
+          "averageLoss": -2.283989766364286,
+          "profitFactor": 0.7213353845436227,
+          "expectancy": -0.4492709152589682,
+          "averageDurationMs": 18476469.588235293,
+          "maxConsecutiveWins": 2,
+          "maxConsecutiveLosses": 4,
+          "fees": 6.217211707453607
+        },
+        "2025-09": {
+          "count": 3,
+          "netPnl": -5.881394940281609,
+          "winRate": 0,
+          "averageWin": null,
+          "averageLoss": -1.9604649800938698,
+          "profitFactor": 0,
+          "expectancy": -1.9604649800938698,
+          "averageDurationMs": 32999999.333333332,
+          "maxConsecutiveWins": 0,
+          "maxConsecutiveLosses": 3,
+          "fees": 1.0761037934306783
+        },
+        "2025-10": {
+          "count": 3,
+          "netPnl": -5.86881124627692,
+          "winRate": 0,
+          "averageWin": null,
+          "averageLoss": -1.9562704154256398,
+          "profitFactor": 0,
+          "expectancy": -1.9562704154256398,
+          "averageDurationMs": 55499999.333333336,
+          "maxConsecutiveWins": 0,
+          "maxConsecutiveLosses": 3,
+          "fees": 1.0699858969153313
+        }
+      },
+      "fixedTradeStress": {
+        "count": 95,
+        "netPnl": -125.50380913849887,
+        "method": "Fixed quantities and quote exit times; doubled fees/slippage only; not a resimulated strategy"
+      },
+      "gate": {
+        "passed": false,
+        "failures": [
+          "nonpositive_net_return",
+          "uncertain_or_negative_payoff",
+          "BTCUSDT_insufficient_positive_evidence",
+          "ETHUSDT_insufficient_positive_evidence",
+          "cost_stress_failed"
+        ],
+        "interval": {
+          "mean": -0.004108065693167382,
+          "lower": -0.007142154839602907,
+          "upper": -0.0009406094177968018,
+          "blocks": 9,
+          "method": "95% moving-block percentile bootstrap; dependence may exceed block length"
+        }
+      }
+    },
+    "hourly_pullback_trailing": {
+      "count": 51,
+      "netPnl": -36.59420216975607,
+      "netReturn": -0.03659420216975562,
+      "maxDrawdown": 0.03659420216975562,
+      "expectancy": -0.71753337587757,
+      "profitFactor": 0.4821032609342372,
+      "riskViolations": 0,
+      "candidates": 68,
+      "drawdownHalt": false,
+      "byAsset": {
+        "BTCUSDT": {
+          "count": 32,
+          "netPnl": -20.81786111303677,
+          "winRate": 0.40625,
+          "averageWin": 1.4680880929296534,
+          "averageLoss": -2.1001582274274875,
+          "profitFactor": 0.47828840399884753,
+          "expectancy": -0.6505581597823991,
+          "averageDurationMs": 45815624.28125,
+          "maxConsecutiveWins": 3,
+          "maxConsecutiveLosses": 4,
+          "fees": 12.098717121567493
+        },
+        "ETHUSDT": {
+          "count": 19,
+          "netPnl": -15.776341056719303,
+          "winRate": 0.3157894736842105,
+          "averageWin": 2.4966526929212733,
+          "averageLoss": -2.365865939557457,
+          "profitFactor": 0.4870526362547335,
+          "expectancy": -0.8303337398273317,
+          "averageDurationMs": 16578946.368421054,
+          "maxConsecutiveWins": 2,
+          "maxConsecutiveLosses": 7,
+          "fees": 7.16924294966037
+        }
+      },
+      "byRegime": {
+        "bullish:high_volatility": {
+          "count": 14,
+          "netPnl": -14.365016282749536,
+          "winRate": 0.21428571428571427,
+          "averageWin": 3.870485172949922,
+          "averageLoss": -2.3614974365090275,
+          "profitFactor": 0.44699894610533214,
+          "expectancy": -1.026072591624967,
+          "averageDurationMs": 11828570.42857143,
+          "maxConsecutiveWins": 1,
+          "maxConsecutiveLosses": 4,
+          "fees": 5.279560830684959
+        },
+        "range:high_volatility": {
+          "count": 13,
+          "netPnl": -8.438184900689663,
+          "winRate": 0.46153846153846156,
+          "averageWin": 1.0732795868643166,
+          "averageLoss": -2.1254089174107946,
+          "profitFactor": 0.4328362058058397,
+          "expectancy": -0.6490911462068971,
+          "averageDurationMs": 45899999.23076923,
+          "maxConsecutiveWins": 2,
+          "maxConsecutiveLosses": 3,
+          "fees": 4.911005753430861
+        },
+        "bullish:low_volatility": {
+          "count": 14,
+          "netPnl": -2.42072380750497,
+          "winRate": 0.5,
+          "averageWin": 1.7786874811136297,
+          "averageLoss": -2.124505167900054,
+          "profitFactor": 0.8372243607539706,
+          "expectancy": -0.17290884339321216,
+          "averageDurationMs": 45642856.428571425,
+          "maxConsecutiveWins": 4,
+          "maxConsecutiveLosses": 3,
+          "fees": 5.307068466601462
+        },
+        "range:low_volatility": {
+          "count": 10,
+          "netPnl": -11.370277178811904,
+          "winRate": 0.3,
+          "averageWin": 1.1877053192606866,
+          "averageLoss": -2.1333418766562806,
+          "profitFactor": 0.2386005595105321,
+          "expectancy": -1.1370277178811903,
+          "averageDurationMs": 37979999.2,
+          "maxConsecutiveWins": 2,
+          "maxConsecutiveLosses": 4,
+          "fees": 3.7703250205105836
+        }
+      },
+      "byMonth": {
+        "2025-01": {
+          "count": 4,
+          "netPnl": -7.8226320111647,
+          "winRate": 0,
+          "averageWin": null,
+          "averageLoss": -1.955658002791175,
+          "profitFactor": 0,
+          "expectancy": -1.955658002791175,
+          "averageDurationMs": 29474999.25,
+          "maxConsecutiveWins": 0,
+          "maxConsecutiveLosses": 4,
+          "fees": 1.5273078878743576
+        },
+        "2025-04": {
+          "count": 6,
+          "netPnl": 2.498288297414291,
+          "winRate": 0.6666666666666666,
+          "averageWin": 1.8227440954240066,
+          "averageLoss": -2.3963440421408677,
+          "profitFactor": 1.5212707886431758,
+          "expectancy": 0.41638138290238186,
+          "averageDurationMs": 47399999.333333336,
+          "maxConsecutiveWins": 3,
+          "maxConsecutiveLosses": 1,
+          "fees": 2.302054729308977
+        },
+        "2025-05": {
+          "count": 14,
+          "netPnl": -14.039477906408223,
+          "winRate": 0.2857142857142857,
+          "averageWin": 2.013135053715537,
+          "averageLoss": -2.209201812127037,
+          "profitFactor": 0.3644999823311343,
+          "expectancy": -1.0028198504577301,
+          "averageDurationMs": 35742856.28571428,
+          "maxConsecutiveWins": 2,
+          "maxConsecutiveLosses": 5,
+          "fees": 5.311952396320935
+        },
+        "2025-06": {
+          "count": 2,
+          "netPnl": -4.7031002539247595,
+          "winRate": 0,
+          "averageWin": null,
+          "averageLoss": -2.3515501269623797,
+          "profitFactor": 0,
+          "expectancy": -2.3515501269623797,
+          "averageDurationMs": 27899999,
+          "maxConsecutiveWins": 0,
+          "maxConsecutiveLosses": 2,
+          "fees": 0.749476368561248
+        },
+        "2025-07": {
+          "count": 15,
+          "netPnl": -2.4013950861425997,
+          "winRate": 0.5333333333333333,
+          "averageWin": 1.7590338588912857,
+          "averageLoss": -2.3533808510389838,
+          "profitFactor": 0.8542282517825112,
+          "expectancy": -0.16009300574283997,
+          "averageDurationMs": 33599999.13333333,
+          "maxConsecutiveWins": 5,
+          "maxConsecutiveLosses": 4,
+          "fees": 5.650950347966315
+        },
+        "2025-08": {
+          "count": 4,
+          "netPnl": -0.07545838145674111,
+          "winRate": 0.5,
+          "averageWin": 2.2973694960339515,
+          "averageLoss": -2.335098686762322,
+          "profitFactor": 0.983842571218828,
+          "expectancy": -0.018864595364185277,
+          "averageDurationMs": 8774999,
+          "maxConsecutiveWins": 1,
+          "maxConsecutiveLosses": 1,
+          "fees": 1.4959422494238117
+        },
+        "2025-09": {
+          "count": 3,
+          "netPnl": -3.0779480012858187,
+          "winRate": 0.3333333333333333,
+          "averageWin": 0.054534905856769456,
+          "averageLoss": -1.566241453571294,
+          "profitFactor": 0.01740948234144253,
+          "expectancy": -1.025982667095273,
+          "averageDurationMs": 62399999.666666664,
+          "maxConsecutiveWins": 1,
+          "maxConsecutiveLosses": 2,
+          "fees": 1.1191562285266925
+        },
+        "2025-10": {
+          "count": 3,
+          "netPnl": -6.972478826787523,
+          "winRate": 0,
+          "averageWin": null,
+          "averageLoss": -2.324159608929174,
+          "profitFactor": 0,
+          "expectancy": -2.324159608929174,
+          "averageDurationMs": 32099999,
+          "maxConsecutiveWins": 0,
+          "maxConsecutiveLosses": 3,
+          "fees": 1.1111198632455288
+        }
+      },
+      "fixedTradeStress": {
+        "count": 51,
+        "netPnl": -65.49614804579696,
+        "method": "Fixed quantities and quote exit times; doubled fees/slippage only; not a resimulated strategy"
+      },
+      "gate": {
+        "passed": false,
+        "failures": [
+          "nonpositive_net_return",
+          "uncertain_or_negative_payoff",
+          "BTCUSDT_insufficient_positive_evidence",
+          "ETHUSDT_insufficient_positive_evidence",
+          "cost_stress_failed"
+        ],
+        "interval": {
+          "mean": -0.003781487409675708,
+          "lower": -0.006714162302519487,
+          "upper": -0.0005268992998202346,
+          "blocks": 6,
+          "method": "95% moving-block percentile bootstrap; dependence may exceed block length"
+        }
+      }
+    },
+    "daily_momentum_trailing": {
+      "count": 14,
+      "netPnl": -5.869092570535429,
+      "netReturn": -0.005869092570535028,
+      "maxDrawdown": 0.014669450284332641,
+      "expectancy": -0.4192208978953878,
+      "profitFactor": 0.6951728661631095,
+      "riskViolations": 0,
+      "candidates": 16,
+      "drawdownHalt": false,
+      "byAsset": {
+        "BTCUSDT": {
+          "count": 12,
+          "netPnl": -4.074715909381467,
+          "winRate": 0.4166666666666667,
+          "averageWin": 2.5523987093005758,
+          "averageLoss": -2.405244207983478,
+          "profitFactor": 0.7579862074559127,
+          "expectancy": -0.33955965911512226,
+          "averageDurationMs": 87524999,
+          "maxConsecutiveWins": 2,
+          "maxConsecutiveLosses": 3,
+          "fees": 4.621972034128566
+        },
+        "ETHUSDT": {
+          "count": 2,
+          "netPnl": -1.7943766611539615,
+          "winRate": 0.5,
+          "averageWin": 0.6227529249805457,
+          "averageLoss": -2.4171295861345072,
+          "profitFactor": 0.2576415135344304,
+          "expectancy": -0.8971883305769808,
+          "averageDurationMs": 19349999,
+          "maxConsecutiveWins": 1,
+          "maxConsecutiveLosses": 1,
+          "fees": 0.7732555921940174
+        }
+      },
+      "byRegime": {
+        "bullish:low_volatility": {
+          "count": 6,
+          "netPnl": 3.138945880030718,
+          "winRate": 0.5,
+          "averageWin": 3.452653846855251,
+          "averageLoss": -2.4063385535116786,
+          "profitFactor": 1.4348163278257906,
+          "expectancy": 0.5231576466717863,
+          "averageDurationMs": 96749999,
+          "maxConsecutiveWins": 2,
+          "maxConsecutiveLosses": 3,
+          "fees": 2.3153344224897023
+        },
+        "bullish:high_volatility": {
+          "count": 6,
+          "netPnl": -7.005699605786418,
+          "winRate": 0.3333333333333333,
+          "averageWin": 1.305763733117388,
+          "averageLoss": -2.4043067680052985,
+          "profitFactor": 0.27154682391063967,
+          "expectancy": -1.1676166009644031,
+          "averageDurationMs": 55949999,
+          "maxConsecutiveWins": 2,
+          "maxConsecutiveLosses": 2,
+          "fees": 2.3093168065103846
+        },
+        "range:low_volatility": {
+          "count": 2,
+          "netPnl": -2.002338844779729,
+          "winRate": 0.5,
+          "averageWin": 0.41525746468289526,
+          "averageLoss": -2.417596309462624,
+          "profitFactor": 0.17176460067280522,
+          "expectancy": -1.0011694223898644,
+          "averageDurationMs": 86399999,
+          "maxConsecutiveWins": 1,
+          "maxConsecutiveLosses": 1,
+          "fees": 0.770576397322496
+        }
+      },
+      "byMonth": {
+        "2025-01": {
+          "count": 1,
+          "netPnl": 3.51293106349425,
+          "winRate": 1,
+          "averageWin": 3.51293106349425,
+          "averageLoss": null,
+          "profitFactor": null,
+          "expectancy": 3.51293106349425,
+          "averageDurationMs": 64799999,
+          "maxConsecutiveWins": 1,
+          "maxConsecutiveLosses": 0,
+          "fees": 0.38851683251139024
+        },
+        "2025-02": {
+          "count": 1,
+          "netPnl": -2.409300424120545,
+          "winRate": 0,
+          "averageWin": null,
+          "averageLoss": -2.409300424120545,
+          "profitFactor": 0,
+          "expectancy": -2.409300424120545,
+          "averageDurationMs": 15299999,
+          "maxConsecutiveWins": 0,
+          "maxConsecutiveLosses": 1,
+          "fees": 0.3839411526760532
+        },
+        "2025-04": {
+          "count": 1,
+          "netPnl": 5.670274124937038,
+          "winRate": 1,
+          "averageWin": 5.670274124937038,
+          "averageLoss": null,
+          "profitFactor": null,
+          "expectancy": 5.670274124937038,
+          "averageDurationMs": 56699999,
+          "maxConsecutiveWins": 1,
+          "maxConsecutiveLosses": 0,
+          "fees": 0.3911012332964542
+        },
+        "2025-05": {
+          "count": 1,
+          "netPnl": -2.4171295861345072,
+          "winRate": 0,
+          "averageWin": null,
+          "averageLoss": -2.4171295861345072,
+          "profitFactor": 0,
+          "expectancy": -2.4171295861345072,
+          "averageDurationMs": 899999,
+          "maxConsecutiveWins": 0,
+          "maxConsecutiveLosses": 1,
+          "fees": 0.3851887918073308
+        },
+        "2025-06": {
+          "count": 1,
+          "netPnl": 1.9887745412542301,
+          "winRate": 1,
+          "averageWin": 1.9887745412542301,
+          "averageLoss": null,
+          "profitFactor": null,
+          "expectancy": 1.9887745412542301,
+          "averageDurationMs": 143099999,
+          "maxConsecutiveWins": 1,
+          "maxConsecutiveLosses": 0,
+          "fees": 0.38866851042790374
+        },
+        "2025-07": {
+          "count": 1,
+          "netPnl": 0.6227529249805457,
+          "winRate": 1,
+          "averageWin": 0.6227529249805457,
+          "averageLoss": null,
+          "profitFactor": null,
+          "expectancy": 0.6227529249805457,
+          "averageDurationMs": 37799999,
+          "maxConsecutiveWins": 1,
+          "maxConsecutiveLosses": 0,
+          "fees": 0.38806680038668667
+        },
+        "2025-08": {
+          "count": 2,
+          "netPnl": -4.8293882933072325,
+          "winRate": 0,
+          "averageWin": null,
+          "averageLoss": -2.4146941466536163,
+          "profitFactor": 0,
+          "expectancy": -2.4146941466536163,
+          "averageDurationMs": 22949999,
+          "maxConsecutiveWins": 0,
+          "maxConsecutiveLosses": 2,
+          "fees": 0.7696013703768234
+        },
+        "2025-09": {
+          "count": 3,
+          "netPnl": -4.391966212007532,
+          "winRate": 0.3333333333333333,
+          "averageWin": 0.41525746468289526,
+          "averageLoss": -2.4036118383452134,
+          "profitFactor": 0.08638197275829335,
+          "expectancy": -1.4639887373358438,
+          "averageDurationMs": 159299999,
+          "maxConsecutiveWins": 1,
+          "maxConsecutiveLosses": 1,
+          "fees": 1.1513824921766003
+        },
+        "2025-10": {
+          "count": 3,
+          "netPnl": -3.616040709631676,
+          "winRate": 0.3333333333333333,
+          "averageWin": 1.174756352134466,
+          "averageLoss": -2.395398530883071,
+          "profitFactor": 0.24521104463176496,
+          "expectancy": -1.2053469032105586,
+          "averageDurationMs": 82199999,
+          "maxConsecutiveWins": 1,
+          "maxConsecutiveLosses": 2,
+          "fees": 1.1487604426633404
+        }
+      },
+      "fixedTradeStress": {
+        "count": 14,
+        "netPnl": -13.96193234220749,
+        "method": "Fixed quantities and quote exit times; doubled fees/slippage only; not a resimulated strategy"
+      },
+      "gate": {
+        "passed": false,
+        "failures": [
+          "insufficient_trades",
+          "nonpositive_net_return",
+          "uncertain_or_negative_payoff",
+          "BTCUSDT_insufficient_positive_evidence",
+          "ETHUSDT_insufficient_positive_evidence",
+          "cost_stress_failed"
+        ],
+        "interval": {
+          "mean": -0.002166317414924502,
+          "lower": null,
+          "upper": null,
+          "blocks": 3
+        }
+      }
+    },
+    "hourly_rebound_fixed": {
+      "count": 10,
+      "netPnl": -3.636945967756418,
+      "netReturn": -0.003636945967756433,
+      "maxDrawdown": 0.010127202597332352,
+      "expectancy": -0.3636945967756418,
+      "profitFactor": 0.7016497582837352,
+      "riskViolations": 0,
+      "candidates": 11,
+      "drawdownHalt": false,
+      "byAsset": {
+        "ETHUSDT": {
+          "count": 5,
+          "netPnl": 3.3281254416004344,
+          "winRate": 0.6,
+          "averageWin": 2.705895617944009,
+          "averageLoss": -2.394780706115796,
+          "profitFactor": 1.6948706061271206,
+          "expectancy": 0.6656250883200869,
+          "averageDurationMs": 10619999.2,
+          "maxConsecutiveWins": 2,
+          "maxConsecutiveLosses": 1,
+          "fees": 1.9164834417925989
+        },
+        "BTCUSDT": {
+          "count": 5,
+          "netPnl": -6.965071409356852,
+          "winRate": 0.2,
+          "averageWin": 0.4355566243286262,
+          "averageLoss": -1.8501570084213697,
+          "profitFactor": 0.058854008382275225,
+          "expectancy": -1.3930142818713704,
+          "averageDurationMs": 14759999.4,
+          "maxConsecutiveWins": 1,
+          "maxConsecutiveLosses": 4,
+          "fees": 1.9093822646088563
+        }
+      },
+      "byRegime": {
+        "bearish:high_volatility": {
+          "count": 6,
+          "netPnl": -1.9390270876325815,
+          "winRate": 0.3333333333333333,
+          "averageWin": 3.8185386470554334,
+          "averageLoss": -2.394026095435862,
+          "profitFactor": 0.7975139983510123,
+          "expectancy": -0.32317118127209693,
+          "averageDurationMs": 10049999,
+          "maxConsecutiveWins": 1,
+          "maxConsecutiveLosses": 3,
+          "fees": 2.2973814836173743
+        },
+        "bearish:low_volatility": {
+          "count": 3,
+          "netPnl": -2.178528439844996,
+          "winRate": 0.3333333333333333,
+          "averageWin": 0.4355566243286262,
+          "averageLoss": -1.307042532086811,
+          "profitFactor": 0.16661914728712798,
+          "expectancy": -0.7261761466149986,
+          "averageDurationMs": 14999999.666666666,
+          "maxConsecutiveWins": 1,
+          "maxConsecutiveLosses": 2,
+          "fees": 1.1466086367750858
+        },
+        "bullish:low_volatility": {
+          "count": 1,
+          "netPnl": 0.4806095597211595,
+          "winRate": 1,
+          "averageWin": 0.4806095597211595,
+          "averageLoss": null,
+          "profitFactor": null,
+          "expectancy": 0.4806095597211595,
+          "averageDurationMs": 21600000,
+          "maxConsecutiveWins": 1,
+          "maxConsecutiveLosses": 0,
+          "fees": 0.3818755860089953
+        }
+      },
+      "byMonth": {
+        "2025-02": {
+          "count": 3,
+          "netPnl": -4.361457622008118,
+          "winRate": 0.3333333333333333,
+          "averageWin": 0.4355566243286262,
+          "averageLoss": -2.398507123168372,
+          "profitFactor": 0.09079744231763341,
+          "expectancy": -1.4538192073360392,
+          "averageDurationMs": 13499999.333333334,
+          "maxConsecutiveWins": 1,
+          "maxConsecutiveLosses": 1,
+          "fees": 1.1489543520885501
+        },
+        "2025-03": {
+          "count": 2,
+          "netPnl": -2.620376237296,
+          "winRate": 0,
+          "averageWin": null,
+          "averageLoss": -1.310188118648,
+          "profitFactor": 0,
+          "expectancy": -1.310188118648,
+          "averageDurationMs": 18899999.5,
+          "maxConsecutiveWins": 0,
+          "maxConsecutiveLosses": 2,
+          "fees": 0.7630991420149708
+        },
+        "2025-06": {
+          "count": 1,
+          "netPnl": -2.384103896206568,
+          "winRate": 0,
+          "averageWin": null,
+          "averageLoss": -2.384103896206568,
+          "profitFactor": 0,
+          "expectancy": -2.384103896206568,
+          "averageDurationMs": 1799999,
+          "maxConsecutiveWins": 0,
+          "maxConsecutiveLosses": 1,
+          "fees": 0.379925885889951
+        },
+        "2025-09": {
+          "count": 1,
+          "netPnl": 0.4806095597211595,
+          "winRate": 1,
+          "averageWin": 0.4806095597211595,
+          "averageLoss": null,
+          "profitFactor": null,
+          "expectancy": 0.4806095597211595,
+          "averageDurationMs": 21600000,
+          "maxConsecutiveWins": 1,
+          "maxConsecutiveLosses": 0,
+          "fees": 0.3818755860089953
+        },
+        "2025-10": {
+          "count": 1,
+          "netPnl": 3.815791486446244,
+          "winRate": 1,
+          "averageWin": 3.815791486446244,
+          "averageLoss": null,
+          "profitFactor": null,
+          "expectancy": 3.815791486446244,
+          "averageDurationMs": 15299999,
+          "maxConsecutiveWins": 1,
+          "maxConsecutiveLosses": 0,
+          "fees": 0.385399141321695
+        },
+        "2025-11": {
+          "count": 2,
+          "netPnl": 1.4325907415868642,
+          "winRate": 0.5,
+          "averageWin": 3.821285807664623,
+          "averageLoss": -2.3886950660777586,
+          "profitFactor": 1.5997378074461301,
+          "expectancy": 0.7162953707934321,
+          "averageDurationMs": 4949999,
+          "maxConsecutiveWins": 1,
+          "maxConsecutiveLosses": 1,
+          "fees": 0.7666115990772933
+        }
+      },
+      "fixedTradeStress": {
+        "count": 10,
+        "netPnl": -9.375742950969027,
+        "method": "Fixed quantities and quote exit times; doubled fees/slippage only; not a resimulated strategy"
+      },
+      "gate": {
+        "passed": false,
+        "failures": [
+          "insufficient_trades",
+          "nonpositive_net_return",
+          "uncertain_or_negative_payoff",
+          "BTCUSDT_insufficient_positive_evidence",
+          "ETHUSDT_insufficient_positive_evidence",
+          "cost_stress_failed"
+        ],
+        "interval": {
+          "mean": -0.0018774638555974575,
+          "lower": null,
+          "upper": null,
+          "blocks": 2
+        }
+      }
+    }
+  }
+}

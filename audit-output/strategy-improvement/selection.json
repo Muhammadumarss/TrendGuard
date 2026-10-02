@@ -1,0 +1,113 @@
+{
+  "protocolHash": "01f1dbcfc8111c18a660b3a5609d2beb5d39d39c5bfb5393db90804568e3204d",
+  "selection": {
+    "trend_following": null,
+    "counter_trend": null
+  },
+  "gates": {
+    "baseline_rules": {
+      "passed": false,
+      "failures": [
+        "nonpositive_net_return",
+        "uncertain_or_negative_payoff",
+        "drawdown_limit",
+        "BTCUSDT_insufficient_positive_evidence",
+        "ETHUSDT_insufficient_positive_evidence",
+        "cost_stress_failed"
+      ],
+      "interval": {
+        "mean": -0.0033575383790605084,
+        "lower": -0.004864097077271197,
+        "upper": -0.0017948096189270121,
+        "blocks": 12,
+        "method": "95% moving-block percentile bootstrap; dependence may exceed block length"
+      }
+    },
+    "hourly_breakout_fixed": {
+      "passed": false,
+      "failures": [
+        "nonpositive_net_return",
+        "uncertain_or_negative_payoff",
+        "drawdown_limit",
+        "BTCUSDT_insufficient_positive_evidence",
+        "ETHUSDT_insufficient_positive_evidence",
+        "cost_stress_failed"
+      ],
+      "interval": {
+        "mean": -0.003731871686523304,
+        "lower": -0.004930979189076971,
+        "upper": -0.002349907056748441,
+        "blocks": 11,
+        "method": "95% moving-block percentile bootstrap; dependence may exceed block length"
+      }
+    },
+    "hourly_breakout_trailing": {
+      "passed": false,
+      "failures": [
+        "nonpositive_net_return",
+        "uncertain_or_negative_payoff",
+        "BTCUSDT_insufficient_positive_evidence",
+        "ETHUSDT_insufficient_positive_evidence",
+        "cost_stress_failed"
+      ],
+      "interval": {
+        "mean": -0.0030085774478293484,
+        "lower": -0.0048649802221868285,
+        "upper": -0.0008413424999184554,
+        "blocks": 10,
+        "method": "95% moving-block percentile bootstrap; dependence may exceed block length"
+      }
+    },
+    "hourly_pullback_trailing": {
+      "passed": false,
+      "failures": [
+        "nonpositive_net_return",
+        "uncertain_or_negative_payoff",
+        "BTCUSDT_insufficient_positive_evidence",
+        "ETHUSDT_insufficient_positive_evidence",
+        "cost_stress_failed"
+      ],
+      "interval": {
+        "mean": -0.00520352594611923,
+        "lower": -0.007684656814545112,
+        "upper": -0.0028892331804594774,
+        "blocks": 7,
+        "method": "95% moving-block percentile bootstrap; dependence may exceed block length"
+      }
+    },
+    "daily_momentum_trailing": {
+      "passed": false,
+      "failures": [
+        "insufficient_trades",
+        "nonpositive_net_return",
+        "uncertain_or_negative_payoff",
+        "BTCUSDT_insufficient_positive_evidence",
+        "ETHUSDT_insufficient_positive_evidence",
+        "cost_stress_failed"
+      ],
+      "interval": {
+        "mean": -0.0029959678983244465,
+        "lower": null,
+        "upper": null,
+        "blocks": 3
+      }
+    },
+    "hourly_rebound_fixed": {
+      "passed": false,
+      "failures": [
+        "insufficient_trades",
+        "nonpositive_net_return",
+        "uncertain_or_negative_payoff",
+        "BTCUSDT_insufficient_positive_evidence",
+        "ETHUSDT_insufficient_positive_evidence",
+        "cost_stress_failed"
+      ],
+      "interval": {
+        "mean": -0.0011151704627935335,
+        "lower": null,
+        "upper": null,
+        "blocks": 1
+      }
+    }
+  }
+}

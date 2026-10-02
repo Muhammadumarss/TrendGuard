@@ -11,7 +11,8 @@
     "start": "node src/server.js",
     "test": "node --test",
     "train": "node src/jobs.js train",
-    "backtest": "node src/jobs.js backtest"
+    "backtest": "node src/jobs.js backtest",
+    "research:strategies": "node research/evaluate-candidates.js"
   },
   "dependencies": {
     "express": "5.2.1"
